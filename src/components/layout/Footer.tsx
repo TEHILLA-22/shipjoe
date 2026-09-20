@@ -35,10 +35,20 @@ export function Footer() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-stone-400">Contact</p>
           <ul className="mt-4 space-y-3 text-sm text-stone-300">
             <li>Email</li>
-            <li>[email]</li>
+            <li><a href="mailto:info@shipjoe.com" className="hover:text-white">info@shipjoe.com</a></li>
             <li>Phone</li>
-            <li>[phone no]</li>
+            <li><a href="tel:+447944036116" className="hover:text-white">+44 7944 036 116</a></li>
           </ul>
+        </div>
+
+        <div className="md:col-span-4 border-t border-stone-800 pt-6">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-stone-400">Customer policies</p>
+          <nav aria-label="Customer policies" className="mt-4 flex flex-wrap gap-x-6 gap-y-3 text-sm text-stone-300">
+            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/refunds" className="hover:text-white">Refund &amp; Cancellation</Link>
+            <Link href="/shipping-policy" className="hover:text-white">Shipping &amp; Tracking</Link>
+          </nav>
         </div>
       </Container>
     </footer>

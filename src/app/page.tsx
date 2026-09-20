@@ -151,7 +151,7 @@ export default function HomePage() {
                 <SectionHeading
                   eyebrow="Editorial"
                   title="International shipping without the noise."
-                  description="Ship Joe is designed to feel premium, structured and easy to trust. The editorial layout gives the route and the freight process the visual importance they deserve."
+                  description="Ship Joe is your one guaranteed, structured and easy to trust. The editorial layout gives the route and the freight process the visual importance they deserve."
                 />
               </Reveal>
             </div>
