@@ -1,0 +1,91 @@
+export const aboutHero = {
+  label: "About Ship Joe",
+  headline: "MOVING MORE THAN CARGO.",
+  supportingText:
+    "Ship Joe is a Nigeria ↔ UK shipping and freight service focused on practical route support, clear shipment information, and dependable communication.",
+};
+
+export const aboutOrigin = {
+  headline: "WHY SHIPJOE EXISTS",
+  narrative: [
+    "Moving something between Nigeria and the UK involves more than choosing a destination. The route, cargo type, weight, dimensions and freight method all shape the next step.",
+    "Ship Joe exists to make that starting point clearer: give customers a practical way to describe what they need to move, understand the available air and sea options, and begin a focused shipping conversation.",
+  ],
+};
+
+export const aboutOperations = [
+  {
+    id: "01",
+    title: "REQUEST",
+    description: "The customer defines the route, cargo type, and requirements.",
+  },
+  {
+    id: "02",
+    title: "PREPARE",
+    description: "Shipment details are reviewed, and the appropriate method is confirmed.",
+  },
+  {
+    id: "03",
+    title: "MOVE",
+    description: "Cargo enters the transit phase along the Nigeria ↔ UK corridor.",
+  },
+  {
+    id: "04",
+    title: "ARRIVE",
+    description: "The shipment reaches its destination side of the route and moves into delivery coordination.",
+  },
+  {
+    id: "05",
+    title: "DELIVER",
+    description: "Final handover completes the logistics cycle.",
+  },
+];
+
+export const aboutPrinciples = [
+  {
+    id: "01",
+    title: "CLARITY",
+    description: "We make the shipping process understandable, from initial quote to final delivery.",
+  },
+  {
+    id: "02",
+    title: "CARE",
+    description: "We treat every shipment as something entrusted to us, regardless of size or method.",
+  },
+  {
+    id: "03",
+    title: "COMMUNICATION",
+    description: "Customers should understand what is happening with their cargo at every critical stage.",
+  },
+  {
+    id: "04",
+    title: "RELIABILITY",
+    description: "We keep the route, shipment details and next steps clear throughout the customer journey.",
+  },
+];
+
+export const aboutStandards = [
+  {
+    title: "CLEAR INFORMATION",
+    description: "The customer understands exactly what information is required before a shipment begins.",
+  },
+  {
+    title: "VISIBLE PROGRESS",
+    description: "The customer can track or understand the shipment process where tracking is available.",
+  },
+  {
+    title: "DIRECT COMMUNICATION",
+    description: "Customers have a clear, direct way to contact Ship Joe regarding their cargo.",
+  },
+  {
+    title: "PRACTICAL OPTIONS",
+    description: "Customers can consider air or sea freight depending on the specific needs of their shipment.",
+  },
+];
+
+export const aboutConfidence = {
+  operatingCorridor: "Nigeria ↔ UK",
+  freightMethods: "Air / Sea",
+  customerAction: "Request a quote",
+  visibility: "Tracking where available",
+};

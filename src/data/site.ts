@@ -168,3 +168,42 @@ export const shippingMethods = [
   { name: "UK → Nigeria", description: "Route-specific coordination for shipments leaving the UK." },
   { name: "Nigeria → UK", description: "Route-specific coordination for shipments leaving Nigeria." },
 ];
+
+export const servicesPageMethods = [
+  {
+    name: "Air Freight",
+    kicker: "When speed matters",
+    description: "Air freight is suited to urgent cargo, parcels and commercial consignments that need a faster route between Nigeria and the UK.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80",
+    imageAlt: "Aircraft wing above the clouds",
+    route: "Nigeria ↔ UK",
+    tone: "light",
+  },
+  {
+    name: "Sea Freight",
+    kicker: "For larger shipments",
+    description: "Sea freight is suited to larger, bulk or less time-sensitive cargo moving between Nigeria and the UK with deliberate route coordination.",
+    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+    imageAlt: "Container ship moving through open water",
+    route: "Nigeria ↔ UK",
+    tone: "dark",
+  },
+] as const;
+
+export const serviceJourney = [
+  { id: "01", title: "Request", description: "Share your route, cargo type, weight, dimensions and contact details." },
+  { id: "02", title: "Prepare", description: "The shipment information is reviewed before the route and method are confirmed." },
+  { id: "03", title: "Collect", description: "The shipment moves into the arranged collection and handling process." },
+  { id: "04", title: "Transit", description: "Cargo travels between Nigeria and the UK by the selected freight method." },
+  { id: "05", title: "Arrive", description: "The shipment reaches its destination side of the route." },
+  { id: "06", title: "Deliver", description: "The journey closes with destination coordination and delivery." },
+] as const;
+
+export const servicesPageFaq: FaqItem[] = [
+  { question: "Can I ship from Nigeria to the UK?", answer: "Yes. Ship Joe supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
+  { question: "Can I ship from the UK to Nigeria?", answer: "Yes. UK to Nigeria is also supported as a route direction. Request a quote with your shipment information so the route can be reviewed." },
+  { question: "What is the difference between air and sea freight?", answer: "Air freight is suited to urgent cargo and faster international movement. Sea freight is suited to larger, bulk or less time-sensitive cargo." },
+  { question: "What information is needed for a quote?", answer: "The quote process asks for the route, shipment type, weight, dimensions, quantity, description and your contact details." },
+  { question: "What is the current price per kilogram?", answer: "The listed rate is £1.50 per kg. The quote process is still the right place to provide the complete shipment details." },
+  { question: "How do I track a shipment?", answer: "Use the Track shipment page to submit your tracking number. The live results panel can be connected to the tracking backend." },
+];
