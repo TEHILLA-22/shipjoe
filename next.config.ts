@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+
+  outputFileTracingIncludes: {
+    "/*": [
+      "./src/schema/**/*",
+    ],
+  },
 };
 
 export default nextConfig;
