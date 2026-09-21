@@ -1,0 +1,17 @@
+{
+  "name": "Admin__4449ba7d8f68",
+  "modelName": "Admin",
+  "tableName": "admins",
+  "schemaHash": "4449ba7d8f688729c887fd061e10d7002599c93c7dccd4c3acb6860854e0f378",
+  "batch": 1,
+  "appliedAt": "2026-09-21T18:50:47.288Z",
+  "fields": [
+    "id",
+    "email",
+    "passwordHash",
+    "role",
+    "isActive",
+    "createdAt",
+    "updatedAt"
+  ]
+}
