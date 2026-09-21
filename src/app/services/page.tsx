@@ -11,7 +11,7 @@ import { ServiceHero } from "@/components/services/ServiceHero";
 import { Container } from "@/components/ui/Container";
 import { PrimaryButton, SecondaryButton } from "@/components/ui/Buttons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { services, servicesPageFaq, servicesPageMethods, serviceJourney } from "@/data/site";
+import { servicesPageFaq, servicesPageMethods, serviceJourney } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Services | Ship Joe",

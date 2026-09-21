@@ -115,8 +115,9 @@ export default function AdminQuotesPage() {
     }
   }, [page, router]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
-    loadQuotes();
+    void loadQuotes();
   }, [loadQuotes]);
 
   return (

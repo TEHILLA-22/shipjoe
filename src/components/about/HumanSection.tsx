@@ -29,7 +29,7 @@ export function HumanSection() {
               <Reveal delay={0.2}>
                 <div className="max-w-sm rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8">
                   <p className="text-sm leading-relaxed text-stone-100 font-medium">
-                    Behind every tracking number is a person, a business, or a plan. We don't just move boxes; we uphold the responsibility of delivering what matters.
+                    Behind every tracking number is a person, a business, or a plan. We don&apos;t just move boxes; we uphold the responsibility of delivering what matters.
                   </p>
                 </div>
               </Reveal>

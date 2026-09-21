@@ -55,7 +55,7 @@ export function AboutCTA() {
               LET'S MOVE SOMETHING THAT MATTERS.
             </h2>
             <p className="mt-8 text-xl leading-relaxed text-stone-400 max-w-xl font-light">
-              Whether you're sending something personal, moving business cargo, or exploring your shipping options, start by telling us what you need to move.
+              Whether you&apos;re sending something personal, moving business cargo, or exploring your shipping options, start by telling us what you need to move.
             </p>
           </div>
         </Reveal>

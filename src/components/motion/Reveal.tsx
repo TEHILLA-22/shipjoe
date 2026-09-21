@@ -41,7 +41,7 @@ export function Reveal({
     }, el);
 
     return () => ctx.revert();
-  }, []);
+  }, [delay]);
 
   return <div ref={ref} className={className}>{children}</div>;
 }

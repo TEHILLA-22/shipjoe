@@ -85,8 +85,9 @@ export default function AdminQuoteDetailPage() {
     }
   }, [id, router]);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => {
-    loadQuote();
+    void loadQuote();
   }, [loadQuote]);
 
   async function updateStatus() {
