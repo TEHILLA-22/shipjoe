@@ -79,7 +79,7 @@ const result = await response.json();
       <div className="w-full max-w-md">
         <div className="mb-8">
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-stone-500">
-            Ship Joe
+            EM Move Logistics
           </p>
 
           <h1 className="mt-3 text-4xl font-semibold tracking-[-0.05em] text-white">

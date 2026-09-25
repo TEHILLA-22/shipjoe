@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-stone-200 bg-stone-950 text-stone-200">
       <Container className="grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
-          <p className="text-2xl font-semibold tracking-[-0.06em] text-white">Ship Joe</p>
+          <p className="text-2xl font-semibold tracking-[-0.06em] text-white">EM Move Logistics</p>
           <p className="mt-4 text-base text-stone-300">Nigeria ↔ United Kingdom</p>
         </div>
 
@@ -35,7 +35,7 @@ export function Footer() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-stone-400">Contact</p>
           <ul className="mt-4 space-y-3 text-sm text-stone-300">
             <li>Email</li>
-            <li><a href="mailto:info@shipjoe.com" className="hover:text-white">info@shipjoe.com</a></li>
+            <li><a href="mailto:info@emmovelogistics.com" className="hover:text-white">info@emmovelogistics.com</a></li>
             <li>Phone</li>
             <li><a href="tel:+447944036116" className="hover:text-white">+44 7944 036 116</a></li>
           </ul>

@@ -1,15 +1,15 @@
 export const aboutHero = {
-  label: "About Ship Joe",
+  label: "About EM Move Logistics",
   headline: "MOVING MORE THAN CARGO.",
   supportingText:
-    "Ship Joe is a Nigeria ↔ UK shipping and freight service focused on practical route support, clear shipment information, and dependable communication.",
+    "EM Move Logistics is a Nigeria ↔ UK shipping and freight service focused on practical route support, clear shipment information, and dependable communication.",
 };
 
 export const aboutOrigin = {
-  headline: "WHY SHIPJOE EXISTS",
+  headline: "WHY EM MOVE LOGISTICS EXISTS",
   narrative: [
     "Moving something between Nigeria and the UK involves more than choosing a destination. The route, cargo type, weight, dimensions and freight method all shape the next step.",
-    "Ship Joe exists to make that starting point clearer: give customers a practical way to describe what they need to move, understand the available air and sea options, and begin a focused shipping conversation.",
+    "EM Move Logistics exists to make that starting point clearer: give customers a practical way to describe what they need to move, understand the available air and sea options, and begin a focused shipping conversation.",
   ],
 };
 
@@ -75,7 +75,7 @@ export const aboutStandards = [
   },
   {
     title: "DIRECT COMMUNICATION",
-    description: "Customers have a clear, direct way to contact Ship Joe regarding their cargo.",
+    description: "Customers have a clear, direct way to contact EM Move Logistics regarding their cargo.",
   },
   {
     title: "PRACTICAL OPTIONS",

@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Request a quote | Ship Joe",
+  title: "Request a quote | EM Move Logistics",
   description: "Request a quote for Nigeria ↔ UK shipping, air freight, sea freight and commercial cargo services.",
 };
 

@@ -91,9 +91,9 @@ export const services: Service[] = [
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What shipping routes does Ship Joe handle?",
+    question: "What shipping routes does EM Move Logistics handle?",
     answer:
-      "Ship Joe supports international shipping between Nigeria and the United Kingdom across both air and sea freight services. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
+      "EM Move Logistics supports international shipping between Nigeria and the United Kingdom across both air and sea freight services. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
   },
   {
     question: "Do you offer both air and sea freight?",
@@ -200,7 +200,7 @@ export const serviceJourney = [
 ] as const;
 
 export const servicesPageFaq: FaqItem[] = [
-  { question: "Can I ship from Nigeria to the UK?", answer: "Yes. Ship Joe supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
+  { question: "Can I ship from Nigeria to the UK?", answer: "Yes. EM Move Logistics supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
   { question: "Can I ship from the UK to Nigeria?", answer: "Yes. UK to Nigeria is also supported as a route direction. Request a quote with your shipment information so the route can be reviewed." },
   { question: "What is the difference between air and sea freight?", answer: "Air freight is suited to urgent cargo and faster international movement. Sea freight is suited to larger, bulk or less time-sensitive cargo." },
   { question: "What information is needed for a quote?", answer: "The quote process asks for the route, shipment type, weight, dimensions, quantity, description and your contact details." },

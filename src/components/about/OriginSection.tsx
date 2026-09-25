@@ -17,7 +17,7 @@ export function OriginSection() {
 
           <div>
             <Reveal>
-              <h2 className="max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.08em] text-stone-950 sm:text-7xl lg:text-[8rem]">WHY SHIP JOE <span className="text-stone-400">EXISTS</span></h2>
+              <h2 className="max-w-5xl text-5xl font-semibold leading-[0.9] tracking-[-0.08em] text-stone-950 sm:text-7xl lg:text-[8rem]">WHY EM MOVE LOGISTICS <span className="text-stone-400">EXISTS</span></h2>
             </Reveal>
 
             <div className="relative mt-12 lg:mt-20">
@@ -35,7 +35,7 @@ export function OriginSection() {
               <div className="relative z-10 -mt-8 ml-5 max-w-xl bg-[#f7f4ee] p-7 shadow-[12px_16px_0_rgba(28,25,23,0.08)] sm:-mt-16 sm:ml-14 sm:p-10 lg:ml-24 lg:max-w-2xl">
                 <Reveal>
                   <div className="flex items-center justify-between border-b border-stone-300 pb-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">
-                    <span>Ship Joe / Field note</span>
+                    <span>EM Move Logistics / Field note</span>
                     <span>Nigeria ↔ UK</span>
                   </div>
                   <div className="mt-7 space-y-5 text-lg leading-8 text-stone-700 sm:text-xl">

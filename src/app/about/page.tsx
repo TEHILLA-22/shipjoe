@@ -16,8 +16,8 @@ import { ConfidenceSection } from "@/components/about/ConfidenceSection";
 import { AboutCTA } from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = {
-  title: "About | Ship Joe",
-  description: "Learn about the people, principles, and process behind the Ship Joe logistics system.",
+  title: "About | EM Move Logistics",
+  description: "Learn about the people, principles, and process behind the EM Move Logistics service system.",
 };
 
 export default function AboutPage() {

@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqItems } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "FAQ | Ship Joe",
+  title: "FAQ | EM Move Logistics",
   description: "Shipping questions and route guidance for Nigeria ↔ UK freight and parcel services.",
 };
 

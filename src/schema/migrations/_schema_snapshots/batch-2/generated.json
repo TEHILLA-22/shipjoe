@@ -1,44 +1,4 @@
-
-// AUTO-GENERATED SCHEMA - DO NOT EDIT
-// Schema Hash: d95fb9fd72fb3bdf
-// Source Hash: 6c6e0592341120a4
-
-export interface Quote {
-  id?: number;
-  origin: string;
-  destination: string;
-  shipmentType: string;
-  weight: number;
-  dimensions: string;
-  quantity: number;
-  description?: string;
-  preferredMethod?: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  companyName?: string;
-  notes?: string;
-  status: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface Admin {
-  id?: number;
-  email: string;
-  passwordHash: string;
-  role: string;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export type ModelMap = {
-  Quote: Quote;
-  Admin: Admin;
-};
-
-export const schema = {
+{
   "Quote": {
     "primaryKey": "id",
     "fields": {
@@ -258,7 +218,4 @@ export const schema = {
     "relations": [],
     "table": "admins"
   }
-} as const;
-
-export type Schema = typeof schema;
-export type ModelName = keyof ModelMap;
+}

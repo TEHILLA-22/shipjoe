@@ -15,21 +15,21 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ship Joe — Nigeria ↔ UK Shipping & Freight",
-    template: "%s | Ship Joe",
+    default: "EM Move Logistics — Nigeria ↔ UK Shipping & Freight",
+    template: "%s | EM Move Logistics",
   },
   description:
-    "Ship Joe supports international shipping, air freight, sea freight and route-specific freight coordination between Nigeria and the United Kingdom.",
+    "EM Move Logistics supports international shipping, air freight, sea freight and route-specific freight coordination between Nigeria and the United Kingdom.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "Ship Joe — Nigeria ↔ UK Shipping & Freight",
+    title: "EM Move Logistics — Nigeria ↔ UK Shipping & Freight",
     description:
       "International shipping and freight services connecting Nigeria and the United Kingdom.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ship Joe",
+    title: "EM Move Logistics",
     description: "Nigeria ↔ UK shipping and freight services.",
   },
 };

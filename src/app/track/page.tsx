@@ -6,8 +6,8 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Track shipment | Ship Joe",
-  description: "Track your Nigeria ↔ UK shipment once the backend is connected to Ship Joe's live tracking service.",
+  title: "Track shipment | EM Move Logistics",
+  description: "Track your Nigeria ↔ UK shipment once the backend is connected to EM Move Logistics's live tracking service.",
 };
 
 export default function TrackPage() {

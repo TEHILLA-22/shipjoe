@@ -46,7 +46,7 @@ export function HeroMotion() {
       <div className="absolute inset-0 rounded-[32px] border border-stone-200 bg-stone-100/80" />
       <div data-hero-frame className="relative z-10 w-full overflow-hidden rounded-[32px] border border-stone-200 bg-white p-6 shadow-[0_30px_90px_rgba(28,25,23,0.12)] sm:p-8">
         <div className="mb-8 flex items-center justify-between text-[10px] font-medium uppercase tracking-[0.3em] text-stone-500">
-          <span>SHIP JOE</span>
+          <span>EM MOVE LOGISTICS</span>
           <span>Nigeria ↔ UK</span>
         </div>
 
@@ -57,7 +57,7 @@ export function HeroMotion() {
         </div>
 
         <div data-hero-route className="relative my-6 overflow-hidden rounded-2xl bg-stone-100">
-          <Image data-hero-artwork src="/images/hero.svg" alt="Animated Ship Joe route artwork" width={840} height={664} className="h-auto w-full object-cover" priority />
+          <Image data-hero-artwork src="/images/hero.svg" alt="Animated EM Move Logistics route artwork" width={840} height={664} className="h-auto w-full object-cover" priority />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/30" />
         </div>
 

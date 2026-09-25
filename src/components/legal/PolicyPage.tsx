@@ -32,7 +32,7 @@ export function PolicyPage({ eyebrow, title, intro, lastUpdated, sections }: Pol
         <section className="bg-stone-50 py-16 sm:py-24">
           <Container className="max-w-4xl">
             <div className="rounded-[28px] border border-amber-200 bg-amber-50 p-5 text-sm leading-7 text-amber-950">
-              These policies are published for customer clarity and should receive final review by Ship Joe&apos;s legal and operations advisers before launch.
+              These policies are published for customer clarity and should receive final review by EM Move Logistics&apos;s legal and operations advisers before launch.
             </div>
             <div className="mt-12 space-y-12">
               {sections.map((section, index) => (
@@ -44,7 +44,7 @@ export function PolicyPage({ eyebrow, title, intro, lastUpdated, sections }: Pol
               ))}
             </div>
             <div className="mt-16 border-t border-stone-300 pt-8 text-sm leading-7 text-stone-600">
-              Questions about these policies can be sent to <a className="font-medium text-stone-900 underline underline-offset-4" href="mailto:info@shipjoe.com">info@shipjoe.com</a> or raised by phone at <a className="font-medium text-stone-900 underline underline-offset-4" href="tel:+447944036116">+44 7944 036 116</a>.
+              Questions about these policies can be sent to <a className="font-medium text-stone-900 underline underline-offset-4" href="mailto:info@emmovelogistics.com">info@emmovelogistics.com</a> or raised by phone at <a className="font-medium text-stone-900 underline underline-offset-4" href="tel:+447944036116">+44 7944 036 116</a>.
             </div>
           </Container>
         </section>

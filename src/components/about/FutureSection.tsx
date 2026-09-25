@@ -51,7 +51,7 @@ export function FutureSection() {
               THE JOURNEY DOESN'T END HERE.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-stone-600">
-              Ship Joe is continuously working to improve visibility, simplify quote requests, and strengthen the overall logistics experience across the Nigeria ↔ UK corridor.
+              EM Move Logistics is continuously working to improve visibility, simplify quote requests, and strengthen the overall logistics experience across the Nigeria ↔ UK corridor.
             </p>
           </div>
         </Reveal>

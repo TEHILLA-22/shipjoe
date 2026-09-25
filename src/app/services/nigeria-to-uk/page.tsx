@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { PrimaryButton } from "@/components/ui/Buttons";
 
 export const metadata: Metadata = {
-  title: "Nigeria to UK | Ship Joe",
+  title: "Nigeria to UK | EM Move Logistics",
   description: "Nigeria to UK shipping with route-specific guidance for parcels, cargo and freight movements.",
 };
 

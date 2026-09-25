@@ -1,7 +1,7 @@
 
 // AUTO-GENERATED SCHEMA - DO NOT EDIT
 // Schema Hash: d95fb9fd72fb3bdf
-// Source Hash: 76202dab4fa60e74
+// Source Hash: 6c6e0592341120a4
 
 export interface Quote {
   id?: number;

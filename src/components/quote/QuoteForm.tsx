@@ -202,7 +202,7 @@ export function QuoteForm() {
 
       setErrors({
         form:
-          "We couldn't connect to Ship Joe. Please check your connection and try again.",
+          "We couldn't connect to EM Move Logistics. Please check your connection and try again.",
       });
     } finally {
       setIsSubmitting(false);

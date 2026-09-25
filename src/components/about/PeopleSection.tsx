@@ -13,7 +13,7 @@ export function PeopleSection() {
               <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-stone-500">05 / The human system</p>
               <h2 className="mt-5 max-w-xl text-5xl font-semibold leading-[0.94] tracking-[-0.07em] text-stone-900 sm:text-7xl">People make the route legible.</h2>
             </div>
-            <p className="max-w-xl text-lg leading-8 text-stone-600">There are no invented faces behind this story. Ship Joe is building a clear service system around the real responsibilities involved in moving a shipment: understanding the request, preparing the information, coordinating the route and communicating the next step.</p>
+            <p className="max-w-xl text-lg leading-8 text-stone-600">There are no invented faces behind this story. EM Move Logistics is building a clear service system around the real responsibilities involved in moving a shipment: understanding the request, preparing the information, coordinating the route and communicating the next step.</p>
           </div>
         </Reveal>
 

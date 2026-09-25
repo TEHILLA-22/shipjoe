@@ -42,7 +42,7 @@ export default function HomePage() {
               <div data-hero-content>
                 <div className="flex items-center gap-4">
                   <span className="h-[1px] w-8 bg-sky-200/40"></span>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-sky-100/80">Ship Joe Logistics</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.35em] text-sky-100/80">EM Move Logistics</p>
                 </div>
                 
                 <h1 className="mt-8 max-w-2xl text-4xl font-light leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-[3.75rem]">
@@ -151,13 +151,13 @@ export default function HomePage() {
                 <SectionHeading
                   eyebrow="Editorial"
                   title="International shipping without the noise."
-                  description="Ship Joe is your one guaranteed, structured and easy to trust. The editorial layout gives the route and the freight process the visual importance they deserve."
+                  description="EM Move Logistics is your one guaranteed, structured and easy to trust. The editorial layout gives the route and the freight process the visual importance they deserve."
                 />
               </Reveal>
             </div>
             <div data-cinematic-visual className="rounded-[32px] border border-stone-200 bg-white p-2">
               <ImageReveal direction="left" className="rounded-[24px]">
-                <Image src="/images/substitute hero or creative section implement.svg" alt="Ship Joe creative shipping illustration" width={1600} height={1200} className="h-auto min-h-72 w-full object-cover" />
+                <Image src="/images/substitute hero or creative section implement.svg" alt="EM Move Logistics creative shipping illustration" width={1600} height={1200} className="h-auto min-h-72 w-full object-cover" />
               </ImageReveal>
             </div>
           </Container>
@@ -190,9 +190,9 @@ export default function HomePage() {
         <section className="border-y border-stone-200 bg-stone-950 py-20 text-stone-100 sm:py-28">
           <Container className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-400">Why Ship Joe</p>
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-400">Why EM Move Logistics</p>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] text-white sm:text-6xl">A route-first freight partner.</h2>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-stone-300">Ship Joe is built around practical international logistics between Nigeria and the UK, with service support shaped around cargo, freight method and directional shipping needs.</p>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-stone-300">EM Move Logistics is built around practical international logistics between Nigeria and the UK, with service support shaped around cargo, freight method and directional shipping needs.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {trustPoints.map((point) => (

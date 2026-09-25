@@ -68,7 +68,7 @@ export function OperationsSection() {
               BEHIND EVERY SHIPMENT IS A SYSTEM.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-stone-600">
-              Ship Joe is not merely a button that says "ship now." There is a structured physical and digital process behind every consignment we move.
+              EM Move Logistics is not merely a button that says "ship now." There is a structured physical and digital process behind every consignment we move.
             </p>
           </div>
         </Reveal>

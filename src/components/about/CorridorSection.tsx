@@ -54,7 +54,7 @@ export function CorridorSection() {
             NIGERIA <span className="font-light text-stone-400 mx-2">↔</span> UK
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
-            Ship Joe is built around shipping goods, packages and commercial freight between Nigeria and the United Kingdom.
+            EM Move Logistics is built around shipping goods, packages and commercial freight between Nigeria and the United Kingdom.
           </p>
         </div>
 
