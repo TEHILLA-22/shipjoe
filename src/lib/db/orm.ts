@@ -14,8 +14,6 @@ const orm = new ORMManager({
   logs: process.env.NODE_ENV !== "production",
 });
 
-await orm.migrate();
-
 export const Quotes = await orm.defineModel<Quote>(
   "quotes",
   "Quote",
