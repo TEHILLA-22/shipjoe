@@ -27,7 +27,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-[rgba(250,250,249,0.9)] backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
         <Link href="/" className="text-lg font-semibold tracking-[0.22em] text-stone-900 uppercase">
-          Ship Joe
+          EM Move logistics
         </Link>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
