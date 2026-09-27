@@ -1,4 +1,38 @@
-export type QuoteRoute = "Nigeria" | "United Kingdom";
+export const CORE_ROUTES = ["Nigeria", "United Kingdom"] as const;
+
+export const EU_ROUTES = [
+  "Austria",
+  "Belgium",
+  "Bulgaria",
+  "Croatia",
+  "Cyprus",
+  "Czech Republic",
+  "Denmark",
+  "Estonia",
+  "Finland",
+  "France",
+  "Germany",
+  "Greece",
+  "Hungary",
+  "Ireland",
+  "Italy",
+  "Latvia",
+  "Lithuania",
+  "Luxembourg",
+  "Malta",
+  "Netherlands",
+  "Poland",
+  "Portugal",
+  "Romania",
+  "Slovakia",
+  "Slovenia",
+  "Spain",
+  "Sweden",
+] as const;
+
+export const QUOTE_ROUTES = [...CORE_ROUTES, ...EU_ROUTES] as const;
+
+export type QuoteRoute = (typeof QUOTE_ROUTES)[number];
 export type QuoteShipmentType = "Parcel" | "Personal effects" | "Commercial cargo" | "Other";
 
 export type QuoteFormData = {
@@ -26,6 +60,7 @@ export function validateQuoteForm(values: QuoteFormData): QuoteFormErrors {
 
   if (!values.origin) errors.origin = "Please select your shipping origin.";
   if (!values.destination) errors.destination = "Please select your shipping destination.";
+  else if (values.destination === values.origin) errors.destination = "Destination must be different from the origin.";
   if (!values.shipmentType) errors.shipmentType = "Please choose a shipment type.";
   if (!values.fullName.trim()) errors.fullName = "Full name is required.";
   if (!values.email.trim()) errors.email = "Email is required.";

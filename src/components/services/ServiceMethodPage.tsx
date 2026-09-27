@@ -19,8 +19,34 @@ type MethodPageProps = {
   considerations: string;
 };
 
+const ROUTE_COPY = {
+  air: {
+    heroOrigin: "Nigeria / origin",
+    heroDestination: "UK / destination",
+    heading: "Nigeria ↔ UK.",
+    body: "The same service corridor works in both directions. Provide the origin, destination and shipment details when requesting a quote.",
+    laneLabel: "Air corridor",
+    laneDestination: "United Kingdom",
+    routeHeading: "Nigeria ↔ UK",
+    routeBody:
+      "Urgent business cargo, commercial consignments and time-sensitive parcels.",
+  },
+  sea: {
+    heroOrigin: "Nigeria / origin",
+    heroDestination: "UK or Europe / destination",
+    heading: "Nigeria → UK and Europe.",
+    body: "Sea freight sails from Nigeria to the United Kingdom and onward to destinations across the European Union. Provide the origin, destination and shipment details when requesting a quote.",
+    laneLabel: "Sea lane",
+    laneDestination: "UK / Europe",
+    routeHeading: "Nigeria → UK + Europe",
+    routeBody:
+      "Larger, bulk or less time-sensitive cargo and commercial freight to the United Kingdom and all EU member states.",
+  },
+} as const;
+
 export function ServiceMethodPage({ method, title, headline, description, image, imageAlt, suitableFor, considerations }: MethodPageProps) {
   const isAir = method === "air";
+  const route = ROUTE_COPY[method];
 
   return (
     <>
@@ -38,7 +64,7 @@ export function ServiceMethodPage({ method, title, headline, description, image,
               </div>
               <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-white/5 p-3 backdrop-blur-sm sm:p-4">
                 <ImageReveal direction={isAir ? "right" : "left"} className="aspect-[4/3] overflow-hidden rounded-2xl"><Image src={image} alt={imageAlt} width={1600} height={1200} sizes="(min-width: 1024px) 56vw, 100vw" className="h-full w-full object-cover" priority /></ImageReveal>
-                <div className="flex justify-between px-1 pt-4 text-[10px] uppercase tracking-[0.24em] text-sky-100/65"><span>Nigeria / origin</span><span>UK / destination</span></div>
+                <div className="flex justify-between px-1 pt-4 text-[10px] uppercase tracking-[0.24em] text-sky-100/65"><span>{route.heroOrigin}</span><span>{route.heroDestination}</span></div>
               </div>
             </div>
           </Container>
@@ -47,13 +73,13 @@ export function ServiceMethodPage({ method, title, headline, description, image,
         <section className="border-b border-stone-200 bg-white py-16 sm:py-24">
           <Container>
             <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-              <div><p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-500">{title} / route</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">Nigeria ↔ UK.</h2><p className="mt-5 max-w-md text-lg leading-8 text-stone-600">The same service corridor works in both directions. Provide the origin, destination and shipment details when requesting a quote.</p></div>
-              <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-5 sm:p-8"><RouteAnimation className="mx-auto" /><div className="mt-5 flex justify-between text-xs font-medium uppercase tracking-[0.22em] text-stone-500"><span>Nigeria</span><span>{isAir ? "Air corridor" : "Sea lane"}</span><span>United Kingdom</span></div></div>
+              <div><p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-500">{title} / route</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">{route.heading}</h2><p className="mt-5 max-w-md text-lg leading-8 text-stone-600">{route.body}</p></div>
+              <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-5 sm:p-8"><RouteAnimation className="mx-auto" /><div className="mt-5 flex justify-between text-xs font-medium uppercase tracking-[0.22em] text-stone-500"><span>Nigeria</span><span>{route.laneLabel}</span><span>{route.laneDestination}</span></div></div>
             </div>
           </Container>
         </section>
 
-        <section className="bg-stone-50 py-16 sm:py-24"><Container><SectionHeading eyebrow={`Why ${title}`} title={isAir ? "When speed matters, move by air." : "For larger shipments and deliberate movement."} description={description} /><div className="mt-12 grid gap-0 border-y border-stone-300 md:grid-cols-3"><div className="border-b border-stone-300 p-6 md:border-b-0 md:border-r"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Suitable for</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">{suitableFor}</h3></div><div className="border-b border-stone-300 p-6 md:border-b-0 md:border-r"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Route</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">Nigeria ↔ UK</h3><p className="mt-3 leading-7 text-stone-600">{isAir ? "Urgent business cargo, commercial consignments and time-sensitive parcels." : "Larger, bulk or less time-sensitive cargo and commercial freight."}</p></div><div className="p-6"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Considerations</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">Details shape the route</h3><p className="mt-3 leading-7 text-stone-600">{considerations}</p></div></div></Container></section>
+        <section className="bg-stone-50 py-16 sm:py-24"><Container><SectionHeading eyebrow={`Why ${title}`} title={isAir ? "When speed matters, move by air." : "For larger shipments and deliberate movement."} description={description} /><div className="mt-12 grid gap-0 border-y border-stone-300 md:grid-cols-3"><div className="border-b border-stone-300 p-6 md:border-b-0 md:border-r"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Suitable for</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">{suitableFor}</h3></div><div className="border-b border-stone-300 p-6 md:border-b-0 md:border-r"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Route</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">{route.routeHeading}</h3><p className="mt-3 leading-7 text-stone-600">{route.routeBody}</p></div><div className="p-6"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">Considerations</p><h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">Details shape the route</h3><p className="mt-3 leading-7 text-stone-600">{considerations}</p></div></div></Container></section>
 
         <section className="bg-white py-16 sm:py-24"><Container><SectionHeading eyebrow="The shipment journey" title="From request to delivery." description="The quote process collects the shipment information needed before the route and freight method are reviewed." /><div className="mt-10"><ProcessTransit /></div><div className="mt-8 grid gap-4 sm:grid-cols-4">{["Request", "Prepare", "Transit", "Arrive"].map((stage, index) => <div key={stage} className="border-l border-stone-300 pl-4"><p className="text-xs uppercase tracking-[0.22em] text-stone-500">0{index + 1}</p><p className="mt-2 font-medium text-stone-900">{stage}</p></div>)}</div></Container></section>
 

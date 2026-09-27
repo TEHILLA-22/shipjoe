@@ -5,6 +5,8 @@ import Image from "next/image";
 import { ActionButton } from "@/components/ui/Buttons";
 import {
   validateQuoteForm,
+  CORE_ROUTES,
+  EU_ROUTES,
   type QuoteFormData,
 } from "@/lib/quote-validation";
 
@@ -37,6 +39,25 @@ type SubmissionResult = {
   message?: string;
 };
 
+function RouteOptions({ blocked }: { blocked: string }) {
+  return (
+    <>
+      {CORE_ROUTES.map((route) => (
+        <option key={route} value={route} disabled={route === blocked}>
+          {route}
+        </option>
+      ))}
+      <optgroup label="Europe (EU)">
+        {EU_ROUTES.map((route) => (
+          <option key={route} value={route} disabled={route === blocked}>
+            {route}
+          </option>
+        ))}
+      </optgroup>
+    </>
+  );
+}
+
 export function QuoteForm() {
   const [step, setStep] = useState(0);
   const [values, setValues] = useState<QuoteFormData>(initialValues);
@@ -53,10 +74,19 @@ export function QuoteForm() {
   );
 
   function updateField(field: keyof QuoteFormData, value: string) {
-    setValues((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+    setValues((prev) => {
+      const next = { ...prev, [field]: value };
+
+      if (field === "origin" && next.destination === value) {
+        next.destination = "";
+      }
+
+      if (field === "destination" && next.origin === value) {
+        next.origin = "";
+      }
+
+      return next;
+    });
 
     setErrors((prev) => {
       const next = { ...prev };
@@ -293,10 +323,7 @@ export function QuoteForm() {
                 className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <option value="">Select origin</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="United Kingdom">
-                  United Kingdom
-                </option>
+                <RouteOptions blocked={values.destination} />
               </select>
 
               {errors.origin ? (
@@ -324,10 +351,7 @@ export function QuoteForm() {
                 className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <option value="">Select destination</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="United Kingdom">
-                  United Kingdom
-                </option>
+                <RouteOptions blocked={values.origin} />
               </select>
 
               {errors.destination ? (

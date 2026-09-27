@@ -46,14 +46,14 @@ export const services: Service[] = [
     slug: "sea-freight",
     title: "Sea Freight",
     description:
-      "For larger or less time-sensitive cargo, sea freight provides a cost-conscious option for moving goods between Nigeria and the UK with a defined operational rhythm.",
+      "For larger or less time-sensitive cargo, sea freight provides a cost-conscious option for moving goods from Nigeria to the UK and onward across the European Union with a defined operational rhythm.",
     shortDescription:
-      "Flexible sea shipping for large and regular consignments across the route.",
+      "Flexible sea shipping for large and regular consignments to the UK and Europe.",
     direction: "both",
     method: "sea",
     image:
       "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80",
-    routeLabel: "Nigeria ↔ UK sea lanes",
+    routeLabel: "Nigeria → UK + Europe sea lanes",
     shipmentTypes: ["Container cargo", "Bulk shipments", "Commercial freight"],
     cta: "Request sea freight quote",
   },
@@ -93,7 +93,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What shipping routes does EM Move Logistics handle?",
     answer:
-      "EM Move Logistics supports international shipping between Nigeria and the United Kingdom across both air and sea freight services. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
+      "EM Move Logistics ships from Nigeria to the United Kingdom by air and sea, and from Nigeria to destinations across the European Union by sea. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
   },
   {
     question: "Do you offer both air and sea freight?",
@@ -182,10 +182,10 @@ export const servicesPageMethods = [
   {
     name: "Sea Freight",
     kicker: "For larger shipments",
-    description: "Sea freight is suited to larger, bulk or less time-sensitive cargo moving between Nigeria and the UK with deliberate route coordination.",
+    description: "Sea freight is suited to larger, bulk or less time-sensitive cargo moving from Nigeria to the United Kingdom and onward to destinations across the European Union with deliberate route coordination.",
     image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
     imageAlt: "Container ship moving through open water",
-    route: "Nigeria ↔ UK",
+    route: "Nigeria → UK + Europe",
     tone: "dark",
   },
 ] as const;
@@ -201,6 +201,8 @@ export const serviceJourney = [
 
 export const servicesPageFaq: FaqItem[] = [
   { question: "Can I ship from Nigeria to the UK?", answer: "Yes. EM Move Logistics supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
+  { question: "Do you ship from Nigeria to Europe?", answer: "Yes. Sea freight runs from Nigeria to the United Kingdom and onward to all EU member states, so larger consignments can be moved to destinations across Europe. Provide the destination country with your quote request." },
+  { question: "Do you offer air freight to Europe?", answer: "Air freight is currently Nigeria to the UK only. For European destinations, request a sea freight quote and include the destination country." },
   { question: "Can I ship from the UK to Nigeria?", answer: "Yes. UK to Nigeria is also supported as a route direction. Request a quote with your shipment information so the route can be reviewed." },
   { question: "What is the difference between air and sea freight?", answer: "Air freight is suited to urgent cargo and faster international movement. Sea freight is suited to larger, bulk or less time-sensitive cargo." },
   { question: "What information is needed for a quote?", answer: "The quote process asks for the route, shipment type, weight, dimensions, quantity, description and your contact details." },
