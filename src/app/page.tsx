@@ -79,8 +79,8 @@ export default function HomePage() {
             <Reveal>
               <SectionHeading
                 eyebrow="Route"
-                title="Nigeria ↔ UK, connected by movement."
-                description="The route is the story. Every shipment follows a flow of collection, transit and delivery between Nigeria and the United Kingdom."
+                title="Nigeria ↔ UK ↔ Europe, connected by movement."
+                description="The route is the story. Every shipment follows a flow of collection, transit and delivery — from Nigeria to the United Kingdom, and from Nigeria to destinations across the European Union."
               />
             </Reveal>
             <RouteTransition>
@@ -101,10 +101,12 @@ export default function HomePage() {
 
               <div data-route-visual className="rounded-[32px] border border-stone-200 bg-stone-50 p-6 sm:p-8">
                 <RouteAnimation className="mx-auto" />
-                <div className="mt-8 flex items-center justify-between text-sm font-medium uppercase tracking-[0.2em] text-stone-500">
+                <div className="mt-8 flex items-center justify-between gap-3 text-xs font-medium uppercase tracking-[0.16em] text-stone-500 sm:text-sm sm:tracking-[0.2em]">
                   <span>Nigeria</span>
                   <span>Transit</span>
                   <span>United Kingdom</span>
+                  <span className="text-stone-400">+</span>
+                  <span>Europe</span>
                 </div>
               </div>
             </div>
@@ -192,7 +194,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-400">Why EM Move Logistics</p>
               <h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] text-white sm:text-6xl">A route-first freight partner.</h2>
-              <p className="mt-6 max-w-xl text-lg leading-8 text-stone-300">EM Move Logistics is built around practical international logistics between Nigeria and the UK, with service support shaped around cargo, freight method and directional shipping needs.</p>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-stone-300">EM Move Logistics is built around practical international logistics out of Nigeria — to the UK and across Europe — with service support shaped around cargo, freight method and directional shipping needs.</p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               {trustPoints.map((point) => (
@@ -210,19 +212,24 @@ export default function HomePage() {
               <Reveal>
                 <SectionHeading
                   eyebrow="Route map"
-                  title="Nigeria ↔ UK service routes."
+                  title="Nigeria ↔ UK ↔ Europe service routes."
                   description="The routes are simple, visible and easy to understand. The message is always: where it starts, where it travels, and where it ends."
                 />
               </Reveal>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
               {[
-                { title: "Nigeria → UK", description: "Outbound movement from Nigeria to the UK with clear route planning and freight handling." },
+                { title: "Nigeria → UK", description: "Outbound movement from Nigeria to the UK by air or sea, with clear route planning and freight handling." },
+                { title: "Nigeria → Europe", description: "Sea freight from Nigeria to all 27 EU member states, including the UK, with planned port coordination." },
                 { title: "UK → Nigeria", description: "Inbound movement from the UK to Nigeria with collection, transit and destination coordination." },
-                { title: "Air Freight", description: "Fast international movement for time-sensitive freight and parcel consignments." },
-                { title: "Sea Freight", description: "Practical route support for larger or less urgent cargo shipments." },
+                { title: "Air Freight", description: "Fast international movement from Nigeria to the UK for time-sensitive freight and parcel consignments." },
+                { title: "Sea Freight", description: "Practical route support to the UK and across the EU for larger or less urgent cargo shipments." },
               ].map((route, index) => (
-                <Reveal key={route.title} delay={index * 0.1}>
+                <Reveal
+                  key={route.title}
+                  delay={index * 0.1}
+                  className={index === 4 ? "md:col-span-2" : ""}
+                >
                   <div className="rounded-[28px] border border-stone-200 bg-stone-50 p-6 h-full">
                     <p className="text-xs uppercase tracking-[0.22em] text-stone-500">Route</p>
                     <h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-stone-900">{route.title}</h3>

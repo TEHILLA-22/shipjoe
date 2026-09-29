@@ -7,7 +7,7 @@ export function Footer() {
       <Container className="grid gap-10 py-12 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
           <p className="text-2xl font-semibold tracking-[-0.06em] text-white">EM Move Logistics</p>
-          <p className="mt-4 text-base text-stone-300">Nigeria ↔ United Kingdom</p>
+          <p className="mt-4 text-base text-stone-300">Nigeria ↔ United Kingdom ↔ Europe</p>
         </div>
 
         <div>

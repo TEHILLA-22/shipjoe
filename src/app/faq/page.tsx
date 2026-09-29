@@ -8,7 +8,7 @@ import { faqItems } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "FAQ | EM Move Logistics",
-  description: "Shipping questions and route guidance for Nigeria ↔ UK freight and parcel services.",
+  description: "Shipping questions and route guidance for Nigeria ↔ UK ↔ Europe freight and parcel services.",
 };
 
 export default function FAQPage() {

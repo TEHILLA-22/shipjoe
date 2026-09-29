@@ -15,16 +15,17 @@ import { servicesPageFaq, servicesPageMethods, serviceJourney } from "@/data/sit
 
 export const metadata: Metadata = {
   title: "Services | EM Move Logistics",
-  description: "Understand EM Move Logistics's Nigeria to UK and UK to Nigeria air and sea freight services.",
+  description: "Understand EM Move Logistics's Nigeria to UK, Nigeria to Europe and UK to Nigeria air and sea freight services.",
 };
 
 const directions = [
-  { title: "Nigeria → UK", text: "A clear outbound route for parcels, personal effects and commercial cargo leaving Nigeria for the United Kingdom." },
+  { title: "Nigeria → UK", text: "A clear outbound route for parcels, personal effects and commercial cargo leaving Nigeria for the United Kingdom by air or sea." },
+  { title: "Nigeria → Europe", text: "Sea freight from Nigeria to all 27 EU member states, covering bulk and commercial cargo with planned port coordination." },
   { title: "UK → Nigeria", text: "A reciprocal route for shipments leaving the United Kingdom, with the same emphasis on method, cargo details and coordination." },
 ];
 
 const shipmentTypes = [
-  { title: "Personal shipments", text: "For parcels and personal effects that need to move between the two sides of the route.", method: "Air or sea, depending on the details" },
+  { title: "Personal shipments", text: "For parcels and personal effects moving out of Nigeria, or back from the UK to Nigeria.", method: "Air or sea, depending on the details" },
   { title: "Business cargo", text: "For commercial consignments that need a clear route, shipment information and freight method selection.", method: "Air for urgency; sea for larger or less time-sensitive cargo" },
   { title: "Larger shipments", text: "For cargo where size, weight, quantity and handling information matter before the route is confirmed.", method: "Sea freight may suit larger cargo" },
 ];
@@ -61,18 +62,19 @@ export default function ServicesPage() {
 
         <section className="border-b border-stone-200 bg-stone-50 py-20 sm:py-28">
           <Container>
-            <SectionHeading eyebrow="The two directions" title="One corridor. Both ways." description="EM Move Logistics's service structure is built around the Nigeria ↔ UK route, so the direction is clear before the shipment details are reviewed." />
+            <SectionHeading eyebrow="The directions" title="Out of Nigeria, and back again." description="EM Move Logistics is built around routes out of Nigeria to the UK and across Europe, plus a reciprocal UK to Nigeria lane, so the direction is clear before the shipment details are reviewed." />
             <RouteTransition>
               <div data-route-visual className="mt-12 rounded-[32px] border border-stone-200 bg-white p-6 sm:p-10">
-                <svg viewBox="0 0 900 180" className="w-full" role="img" aria-label="Two-way route between Nigeria and the UK">
+                <svg viewBox="0 0 900 180" className="w-full" role="img" aria-label="Routes from Nigeria to the United Kingdom and across Europe">
                   <path data-route-line d="M 72 92 C 250 20, 650 20, 828 92" fill="none" stroke="#57534e" strokeWidth="3" strokeLinecap="round" />
                   <path d="M 828 122 C 650 174, 250 174, 72 122" fill="none" stroke="#a8a29e" strokeWidth="2" strokeDasharray="7 10" strokeLinecap="round" />
                   <circle cx="72" cy="92" r="9" fill="#facc15" /><circle cx="828" cy="92" r="9" fill="#292524" />
+                  <circle cx="450" cy="38" r="7" fill="#78716c" />
                 </svg>
-                <div className="mt-5 flex justify-between text-xs font-medium uppercase tracking-[0.24em] text-stone-500"><span>Nigeria</span><span>United Kingdom</span></div>
+                <div className="mt-5 flex justify-between gap-3 text-xs font-medium uppercase tracking-[0.2em] text-stone-500 sm:tracking-[0.24em]"><span>Nigeria</span><span>Europe</span><span>United Kingdom</span></div>
               </div>
             </RouteTransition>
-            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
               {directions.map((direction) => <article key={direction.title} className="border-l-2 border-stone-900 pl-6"><p className="text-xs uppercase tracking-[0.24em] text-stone-500">Direction</p><h3 className="mt-3 text-3xl font-semibold tracking-[-0.06em] text-stone-900">{direction.title}</h3><p className="mt-4 max-w-xl leading-7 text-stone-600">{direction.text}</p></article>)}
             </div>
           </Container>
@@ -105,17 +107,17 @@ export default function ServicesPage() {
         <section className="border-y border-stone-200 bg-stone-50 py-20 sm:py-28">
           <Container className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <ImageReveal direction="up" className="aspect-[4/3] overflow-hidden"><Image src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80" alt="Logistics warehouse and cargo handling environment" width={1600} height={1200} sizes="(min-width: 1024px) 55vw, 100vw" className="h-full w-full object-cover" /></ImageReveal>
-            <div><p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-500">Real-world logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">There is a physical journey behind every request.</h2><p className="mt-6 text-lg leading-8 text-stone-600">The website starts with information, but the service is grounded in cargo preparation, freight handling, route coordination and movement between two countries.</p></div>
+            <div><p className="text-xs font-medium uppercase tracking-[0.28em] text-stone-500">Real-world logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">There is a physical journey behind every request.</h2><p className="mt-6 text-lg leading-8 text-stone-600">The website starts with information, but the service is grounded in cargo preparation, freight handling, route coordination and movement from Nigeria to the UK and across Europe.</p></div>
           </Container>
         </section>
 
         <section className="bg-stone-950 py-20 text-white sm:py-28">
-          <Container><div className="max-w-3xl"><p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-200/70">Why EM Move Logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-6xl">A focused Nigeria ↔ UK shipping service.</h2><p className="mt-6 text-lg leading-8 text-stone-300">EM Move Logistics brings together route-specific support, air and sea freight options, quote-led shipment information and tracking access in one clear service journey.</p></div><div className="mt-12 grid gap-5 border-t border-stone-800 pt-8 sm:grid-cols-2 lg:grid-cols-4">{["Nigeria ↔ UK focus", "Air and sea options", "Quote-led shipment details", "Tracking access"].map((item) => <p key={item} className="text-sm font-medium text-stone-200">{item}</p>)}</div></Container>
+          <Container><div className="max-w-3xl"><p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-200/70">Why EM Move Logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-6xl">A focused Nigeria ↔ UK ↔ Europe shipping service.</h2><p className="mt-6 text-lg leading-8 text-stone-300">EM Move Logistics brings together route-specific support, air and sea freight options, quote-led shipment information and tracking access in one clear service journey.</p></div><div className="mt-12 grid gap-5 border-t border-stone-800 pt-8 sm:grid-cols-2 lg:grid-cols-4">{["Nigeria ↔ UK ↔ Europe focus", "Air to UK · Sea to EU", "Quote-led shipment details", "Tracking access"].map((item) => <p key={item} className="text-sm font-medium text-stone-200">{item}</p>)}</div></Container>
         </section>
 
         <section className="border-b border-stone-200 bg-white py-20 sm:py-28"><Container className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="text-xs uppercase tracking-[0.28em] text-stone-500">Decision support</p><h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">Not sure how your shipment should move?</h2><p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600">Tell us what you are shipping, where it is going and the shipment details. The quote process collects the information needed to review the appropriate option.</p></div><div className="flex flex-wrap gap-3"><PrimaryButton href="/quote">Get a quote</PrimaryButton><SecondaryButton href="/track">Track shipment</SecondaryButton></div></Container></section>
 
-        <section className="bg-stone-50 py-20 sm:py-28"><Container><SectionHeading eyebrow="Service FAQ" title="Questions before the route begins." description="Clear answers for the practical decisions behind a Nigeria ↔ UK shipment." /><div className="mt-10 max-w-4xl"><FAQAccordion items={servicesPageFaq} /></div></Container></section>
+        <section className="bg-stone-50 py-20 sm:py-28"><Container><SectionHeading eyebrow="Service FAQ" title="Questions before the route begins." description="Clear answers for the practical decisions behind a Nigeria ↔ UK ↔ Europe shipment." /><div className="mt-10 max-w-4xl"><FAQAccordion items={servicesPageFaq} /></div></Container></section>
 
         <section className="relative overflow-hidden bg-stone-950 py-24 text-white sm:py-32"><div className="absolute inset-0 opacity-20"></div><Container className="relative"><p className="text-xs uppercase tracking-[0.28em] text-sky-200/70">Arrival / next step</p><h2 className="mt-5 max-w-3xl text-5xl font-semibold tracking-[-0.08em] sm:text-7xl">Let&apos;s get your shipment moving.</h2><div className="mt-8 flex flex-wrap gap-4"><PrimaryButton href="/quote">Get a quote</PrimaryButton><SecondaryButton href="/track" className="!border-stone-700 !bg-stone-900 !text-white hover:!bg-stone-800">Track shipment</SecondaryButton></div></Container></section>
       </main>

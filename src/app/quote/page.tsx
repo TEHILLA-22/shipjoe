@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Request a quote | EM Move Logistics",
-  description: "Request a quote for Nigeria ↔ UK shipping, air freight, sea freight and commercial cargo services.",
+  description: "Request a quote for Nigeria ↔ UK ↔ Europe shipping, air freight, sea freight and commercial cargo services.",
 };
 
 export default function QuotePage() {

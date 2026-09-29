@@ -34,9 +34,9 @@ export function OriginSection() {
 
               <div className="relative z-10 -mt-8 ml-5 max-w-xl bg-[#f7f4ee] p-7 shadow-[12px_16px_0_rgba(28,25,23,0.08)] sm:-mt-16 sm:ml-14 sm:p-10 lg:ml-24 lg:max-w-2xl">
                 <Reveal>
-                  <div className="flex items-center justify-between border-b border-stone-300 pb-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">
+                  <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 border-b border-stone-300 pb-5 text-[10px] font-semibold uppercase tracking-[0.24em] text-stone-500">
                     <span>EM Move Logistics / Field note</span>
-                    <span>Nigeria ↔ UK</span>
+                    <span>Nigeria ↔ UK ↔ Europe</span>
                   </div>
                   <div className="mt-7 space-y-5 text-lg leading-8 text-stone-700 sm:text-xl">
                     {aboutOrigin.narrative.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}

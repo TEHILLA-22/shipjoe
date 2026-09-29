@@ -45,14 +45,14 @@ export function HeroMotion() {
     <div ref={ref} className="relative flex w-full max-w-[600px] items-center justify-center">
       <div className="absolute inset-0 rounded-[32px] border border-stone-200 bg-stone-100/80" />
       <div data-hero-frame className="relative z-10 w-full overflow-hidden rounded-[32px] border border-stone-200 bg-white p-6 shadow-[0_30px_90px_rgba(28,25,23,0.12)] sm:p-8">
-        <div className="mb-8 flex items-center justify-between text-[10px] font-medium uppercase tracking-[0.3em] text-stone-500">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 text-[10px] font-medium uppercase tracking-[0.3em] text-stone-500">
           <span>EM MOVE LOGISTICS</span>
-          <span>Nigeria ↔ UK</span>
+          <span>Nigeria ↔ UK ↔ Europe</span>
         </div>
 
         <div data-hero-word className="space-y-3">
           <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">From Nigeria</p>
-          <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">To the UK</p>
+          <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">To the UK &amp; Europe</p>
           <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">And back again</p>
         </div>
 
@@ -61,14 +61,20 @@ export function HeroMotion() {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/30" />
         </div>
 
-        <div data-hero-package className="flex items-center justify-between text-sm text-stone-700">
+        <div data-hero-package className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs text-stone-700 sm:text-sm">
           <span className="inline-flex items-center gap-2">
-            <span className="inline-block h-3 w-3 rounded-sm border border-stone-900 bg-amber-300" />
+            <span className="inline-block h-3 w-3 shrink-0 rounded-sm border border-stone-900 bg-amber-300" />
             Nigeria
           </span>
-          <span className="inline-flex items-center gap-2">
-            United Kingdom
-            <span className="inline-block h-3 w-3 rounded-sm border border-stone-900 bg-stone-300" />
+          <span className="flex items-center gap-4">
+            <span className="inline-flex items-center gap-2">
+              United Kingdom
+              <span className="inline-block h-3 w-3 shrink-0 rounded-sm border border-stone-900 bg-stone-300" />
+            </span>
+            <span className="inline-flex items-center gap-2">
+              Europe
+              <span className="inline-block h-3 w-3 shrink-0 rounded-sm border border-stone-900 bg-stone-300" />
+            </span>
           </span>
         </div>
 

@@ -23,7 +23,12 @@ export function ConfidenceSection() {
                   <dt className="font-medium text-stone-500 uppercase tracking-[0.1em] text-xs">Freight Methods</dt>
                   <dd className="font-medium text-stone-900">{aboutConfidence.freightMethods}</dd>
                 </div>
-                
+
+                <div className="grid grid-cols-[1fr_2fr] sm:grid-cols-[1fr_3fr] py-6 gap-4">
+                  <dt className="font-medium text-stone-500 uppercase tracking-[0.1em] text-xs">European Reach</dt>
+                  <dd className="font-medium text-stone-900">{aboutConfidence.europeanDestinations}</dd>
+                </div>
+
                 <div className="grid grid-cols-[1fr_2fr] sm:grid-cols-[1fr_3fr] py-6 gap-4">
                   <dt className="font-medium text-stone-500 uppercase tracking-[0.1em] text-xs">Customer Action</dt>
                   <dd className="font-medium text-stone-900">{aboutConfidence.customerAction}</dd>

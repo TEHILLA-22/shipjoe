@@ -73,9 +73,9 @@ export function AboutHero() {
                 Get a quote
               </PrimaryButton>
             </div>
-            <div data-hero-motif className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-300 opacity-0">
-              <span className="h-px w-16 bg-white/40" />
-              Nigeria <span className="text-stone-500">→</span> United Kingdom
+            <div data-hero-motif className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[10px] font-medium uppercase tracking-[0.22em] text-stone-300 opacity-0">
+              <span className="h-px w-10 shrink-0 bg-white/40 sm:w-16" />
+              Nigeria <span className="text-stone-500">→</span> UK <span className="text-stone-500">→</span> Europe
             </div>
           </div>
         </div>

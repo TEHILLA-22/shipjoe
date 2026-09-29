@@ -131,7 +131,7 @@ export const processSteps = [
   {
     id: "03",
     title: "Transit",
-    description: "Your shipment travels between Nigeria and the UK with route visibility.",
+    description: "Your shipment travels from Nigeria to the UK or across Europe with route visibility.",
   },
   {
     id: "04",
@@ -141,8 +141,9 @@ export const processSteps = [
 ];
 
 export const trustPoints = [
-  "Nigeria ↔ UK specialization",
+  "Nigeria ↔ UK ↔ Europe specialization",
   "Air and sea freight support",
+  "All 27 EU member states served",
   "Shipment coordination and communication",
   "Freight handling for business and personal cargo",
   "Dedicated route support for both directions",
@@ -163,10 +164,11 @@ export const homepageStats = [
 ];
 
 export const shippingMethods = [
-  { name: "Air Freight", description: "Fast international movement for urgent cargo." },
-  { name: "Sea Freight", description: "Capable freight support for larger cargo loads." },
+  { name: "Air Freight", description: "Fast movement from Nigeria to the UK for urgent cargo." },
+  { name: "Sea Freight", description: "Sea lanes from Nigeria to the UK and across the EU." },
   { name: "UK → Nigeria", description: "Route-specific coordination for shipments leaving the UK." },
   { name: "Nigeria → UK", description: "Route-specific coordination for shipments leaving Nigeria." },
+  { name: "Nigeria → Europe", description: "Sea freight to all 27 EU member states." },
 ];
 
 export const servicesPageMethods = [
@@ -194,7 +196,7 @@ export const serviceJourney = [
   { id: "01", title: "Request", description: "Share your route, cargo type, weight, dimensions and contact details." },
   { id: "02", title: "Prepare", description: "The shipment information is reviewed before the route and method are confirmed." },
   { id: "03", title: "Collect", description: "The shipment moves into the arranged collection and handling process." },
-  { id: "04", title: "Transit", description: "Cargo travels between Nigeria and the UK by the selected freight method." },
+  { id: "04", title: "Transit", description: "Cargo travels from Nigeria to the UK or across Europe by the selected freight method." },
   { id: "05", title: "Arrive", description: "The shipment reaches its destination side of the route." },
   { id: "06", title: "Deliver", description: "The journey closes with destination coordination and delivery." },
 ] as const;

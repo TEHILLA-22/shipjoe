@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "Track shipment | EM Move Logistics",
-  description: "Track your Nigeria ↔ UK shipment once the backend is connected to EM Move Logistics's live tracking service.",
+  description: "Track your Nigeria ↔ UK ↔ Europe shipment once the backend is connected to EM Move Logistics's live tracking service.",
 };
 
 export default function TrackPage() {

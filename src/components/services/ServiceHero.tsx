@@ -36,29 +36,29 @@ export function ServiceHero() {
       <div className="relative grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-12">
         <div data-service-content>
           <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-[0.3em] text-sky-200/75"><span className="h-px w-8 bg-sky-200/60" /> Services / Route document</div>
-          <h1 className="mt-5 max-w-xl text-5xl font-semibold leading-[0.94] tracking-[-0.08em] sm:text-6xl lg:text-7xl">Shipping between Nigeria and the UK.</h1>
-          <p className="mt-6 max-w-xl text-base leading-8 text-stone-300 sm:text-lg">International shipping solutions for parcels, personal effects and commercial cargo, with air and sea freight options built around the route.</p>
+          <h1 className="mt-5 max-w-xl text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.07em] sm:text-5xl lg:text-6xl">Shipping from Nigeria to the UK and Europe.</h1>
+          <p className="mt-6 max-w-xl text-base leading-8 text-stone-300 sm:text-lg">International shipping solutions for parcels, personal effects and commercial cargo, with air freight to the UK and sea freight to the UK and all EU member states.</p>
           <div className="mt-7 flex flex-wrap items-center gap-5">
             <a href="/quote" className="inline-flex rounded-full bg-white px-5 py-3 text-sm font-medium text-stone-950 transition hover:bg-sky-100">Get a quote</a>
             <span className="text-sm text-stone-400">Listed rate: <strong className="font-medium text-white">£1.50 per kg</strong></span>
           </div>
         </div>
         <div data-service-artwork className="relative overflow-hidden rounded-[24px] border border-white/10 bg-[#0b1b32] shadow-[0_24px_80px_rgba(0,0,0,0.24)]">
-          <Image src="/images/substitute%20hero%20or%20creative%20section%20implement.svg" alt="Animated route and cargo illustration for Nigeria to UK shipping" width={1600} height={1200} className="h-auto w-full" priority />
+          <Image src="/images/substitute%20hero%20or%20creative%20section%20implement.svg" alt="Animated route and cargo illustration for Nigeria to UK and Europe shipping" width={1600} height={1200} className="h-auto w-full" priority />
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(4,9,20,0.26),transparent_28%,transparent_68%,rgba(4,9,20,0.52))]" />
           <div className="pointer-events-none absolute inset-x-5 top-5 flex items-start justify-between sm:inset-x-7 sm:top-7">
             <div className="max-w-[42%]">
               <span className="block text-[9px] font-semibold uppercase tracking-[0.25em] text-sky-100/70">Origin</span>
               <strong className="mt-1 block text-sm font-medium uppercase tracking-[0.16em] text-white sm:text-base">Nigeria</strong>
             </div>
-            <div className="max-w-[42%] text-right">
-              <span className="block text-[9px] font-semibold uppercase tracking-[0.25em] text-sky-100/70">Destination</span>
-              <strong className="mt-1 block text-sm font-medium uppercase tracking-[0.16em] text-white sm:text-base">United Kingdom</strong>
+            <div className="max-w-[46%] text-right">
+              <span className="block text-[9px] font-semibold uppercase tracking-[0.25em] text-sky-100/70">Destinations</span>
+              <strong className="mt-1 block text-sm font-medium uppercase tracking-[0.16em] text-white sm:text-base">UK + Europe</strong>
             </div>
           </div>
           <div className="pointer-events-none absolute inset-x-5 bottom-5 flex items-center justify-between border-t border-white/20 pt-3 text-[9px] uppercase tracking-[0.22em] text-sky-100/65 sm:inset-x-7 sm:bottom-7">
             <span>Route 01</span>
-            <span className="flex items-center gap-2"><i className="h-1.5 w-1.5 rounded-full bg-amber-300" /> Air / Sea corridor</span>
+            <span className="flex items-center gap-2"><i className="h-1.5 w-1.5 rounded-full bg-amber-300" /> Air to UK · Sea to UK + EU</span>
           </div>
         </div>
       </div>
