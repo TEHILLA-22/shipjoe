@@ -1,7 +1,7 @@
 
 // AUTO-GENERATED SCHEMA - DO NOT EDIT
-// Schema Hash: d95fb9fd72fb3bdf
-// Source Hash: 6c6e0592341120a4
+// Schema Hash: 26c04f659804d8c1
+// Source Hash: 9d6e6d8c3cd85d2c
 
 export interface Quote {
   id?: number;
@@ -18,6 +18,8 @@ export interface Quote {
   phone: string;
   companyName?: string;
   notes?: string;
+  reference: string;
+  accessTokenHash: string;
   status: string;
   createdAt: string;
   updatedAt: string;
@@ -161,6 +163,26 @@ export const schema = {
         "optional": true,
         "meta": {
           "@nullable": true
+        }
+      },
+      "reference": {
+        "type": "string",
+        "originalType": "string",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "unique": true,
+          "length": "20"
+        }
+      },
+      "accessTokenHash": {
+        "type": "string",
+        "originalType": "string",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "secret": true,
+          "length": "64"
         }
       },
       "status": {

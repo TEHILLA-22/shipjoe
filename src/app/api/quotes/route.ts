@@ -5,6 +5,11 @@ import {
   validateQuoteForm,
   type QuoteFormData,
 } from "@/lib/quote-validation";
+import {
+  generateAccessToken,
+  generateReference,
+  hashAccessToken,
+} from "@/lib/quotes/access";
 
 function unauthorizedResponse() {
   return NextResponse.json(
@@ -90,6 +95,9 @@ export async function POST(request: NextRequest) {
 
     const now = new Date().toISOString();
 
+    const accessToken = generateAccessToken();
+    const reference = generateReference();
+
     const quote = await Quotes.insert({
       origin: values.origin,
       destination: values.destination,
@@ -105,6 +113,8 @@ export async function POST(request: NextRequest) {
       phone: values.phone,
       companyName: values.companyName || undefined,
       notes: values.notes || undefined,
+      reference,
+      accessTokenHash: hashAccessToken(accessToken),
       status: "pending",
       createdAt: now,
       updatedAt: now,
@@ -116,6 +126,8 @@ export async function POST(request: NextRequest) {
         message:
           "Your quote request has been submitted successfully.",
         quoteId: quote?.id,
+        reference: quote?.reference ?? reference,
+        accessToken,
       },
       { status: 201 },
     );

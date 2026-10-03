@@ -23,7 +23,7 @@ export const navigation = [
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
-  { href: "/track", label: "Track shipment" },
+  { href: "/view-quote", label: "View a quote" },
 ];
 
 export const services: Service[] = [
@@ -106,9 +106,9 @@ export const faqItems: FaqItem[] = [
       "Yes. The quote form includes shipment details and contact information so the right team can review your requirement and follow up with the appropriate route and method information.",
   },
   {
-    question: "How do I track a shipment?",
+    question: "Can I check the status of my quote?",
     answer:
-      "Use the tracking page to submit a tracking number. Once the live backend is connected, tracking information will appear in the dedicated results panel.",
+      "Yes. Use the View a quote page with your quote reference and the email address or phone number you quoted with.",
   },
   {
     question: "What information do I need before requesting a quote?",
@@ -209,5 +209,5 @@ export const servicesPageFaq: FaqItem[] = [
   { question: "What is the difference between air and sea freight?", answer: "Air freight is suited to urgent cargo and faster international movement. Sea freight is suited to larger, bulk or less time-sensitive cargo." },
   { question: "What information is needed for a quote?", answer: "The quote process asks for the route, shipment type, weight, dimensions, quantity, description and your contact details." },
   { question: "What is the current price per kilogram?", answer: "The listed rate is £1.50 per kg. The quote process is still the right place to provide the complete shipment details." },
-  { question: "How do I track a shipment?", answer: "Use the Track shipment page to submit your tracking number. The live results panel can be connected to the tracking backend." },
+  { question: "Can I check where my quote is up to?", answer: "Yes. Once you have sent a quote request, you can look it up any time on the View a quote page using the email address or phone number you quoted with." },
 ];

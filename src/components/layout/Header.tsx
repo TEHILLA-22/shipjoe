@@ -30,7 +30,7 @@ export function Header() {
           EM Move logistics
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">
           {navigation.map((item) => (
             <Link key={item.href} href={item.href} className="text-sm text-stone-600 transition hover:text-stone-900">
               {item.label}
@@ -39,7 +39,6 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link href="/track" className="text-sm text-stone-700 transition hover:text-stone-900">Track shipment</Link>
           <PrimaryButton href="/quote">Get a quote</PrimaryButton>
         </div>
 
@@ -64,7 +63,6 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/track" onClick={() => setMenuOpen(false)} className="border-b border-stone-200 py-4 text-lg font-medium text-stone-900">Track shipment</Link>
           <Link href="/quote" onClick={() => setMenuOpen(false)} className="mt-5 inline-flex w-fit rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-white">Get a quote</Link>
         </nav>
       </div>

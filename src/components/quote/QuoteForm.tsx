@@ -2,13 +2,23 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ActionButton } from "@/components/ui/Buttons";
 import {
   validateQuoteForm,
   CORE_ROUTES,
   EU_ROUTES,
+  availableMethods,
+  isEuCountry,
+  type FreightMethod,
   type QuoteFormData,
 } from "@/lib/quote-validation";
+import {
+  calculateEstimate,
+  formatMoney,
+} from "@/lib/shipping-rates";
+
+const NGN_PER_GBP = Number(process.env.NEXT_PUBLIC_NGN_PER_GBP ?? "1850");
 
 const initialValues: QuoteFormData = {
   origin: "",
@@ -36,6 +46,8 @@ const steps = [
 
 type SubmissionResult = {
   quoteId?: number;
+  reference?: string;
+  accessToken?: string;
   message?: string;
 };
 
@@ -68,6 +80,37 @@ export function QuoteForm() {
 
   const currentPercentage = ((step + 1) / steps.length) * 100;
 
+  const methodOptions = availableMethods(values.destination);
+  const destinationIsEurope = isEuCountry(values.destination);
+
+  const estimate = useMemo(() => {
+    const weightKg = Number(values.weight);
+
+    if (!Number.isFinite(weightKg) || weightKg <= 0) {
+      return null;
+    }
+
+    return calculateEstimate(
+      values.origin,
+      values.destination,
+      values.preferredMethod,
+      weightKg,
+      NGN_PER_GBP,
+    );
+  }, [
+    values.origin,
+    values.destination,
+    values.preferredMethod,
+    values.weight,
+  ]);
+
+  const awaitingRateSelection =
+    !estimate &&
+    values.origin &&
+    values.destination &&
+    values.preferredMethod &&
+    Number(values.weight) > 0;
+
   const formIsValid = useMemo(
     () => Object.keys(validateQuoteForm(values)).length === 0,
     [values],
@@ -83,6 +126,15 @@ export function QuoteForm() {
 
       if (field === "destination" && next.origin === value) {
         next.origin = "";
+      }
+
+      if (
+        next.preferredMethod &&
+        !availableMethods(next.destination).includes(
+          next.preferredMethod as FreightMethod,
+        )
+      ) {
+        next.preferredMethod = "";
       }
 
       return next;
@@ -223,6 +275,8 @@ export function QuoteForm() {
 
       setSubmittedQuote({
         quoteId: result.quoteId,
+        reference: result.reference,
+        accessToken: result.accessToken,
         message:
           result.message ||
           "Your quote request has been submitted successfully.",
@@ -270,14 +324,19 @@ export function QuoteForm() {
             {submittedQuote.message}
           </p>
 
-          {submittedQuote.quoteId ? (
-            <div className="mt-6 rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4">
+          {submittedQuote.reference ? (
+            <div className="mt-6 w-full max-w-sm rounded-2xl border border-stone-200 bg-stone-50 px-5 py-4">
               <p className="text-xs uppercase tracking-[0.2em] text-stone-500">
-                Reference
+                Quote reference
               </p>
 
               <p className="mt-1 font-mono text-lg font-semibold text-stone-900">
-                #{submittedQuote.quoteId}
+                {submittedQuote.reference}
+              </p>
+
+              <p className="mt-3 text-xs leading-5 text-stone-500">
+                Save this reference. You can use it with your email or
+                phone number to check your quote status at any time.
               </p>
             </div>
           ) : null}
@@ -287,11 +346,19 @@ export function QuoteForm() {
             the information you provided.
           </p>
 
-          <div className="mt-8">
-            <ActionButton
-              type="button"
-              onClick={startAnotherQuote}
-            >
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            {submittedQuote.reference ? (
+              <Link
+                href={`/view-quote?ref=${encodeURIComponent(
+                  submittedQuote.reference,
+                )}`}
+                className="inline-flex items-center rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-stone-700"
+              >
+                View this quote
+              </Link>
+            ) : null}
+
+            <ActionButton type="button" onClick={startAnotherQuote}>
               Request another quote
             </ActionButton>
           </div>
@@ -433,6 +500,48 @@ export function QuoteForm() {
               ) : null}
             </div>
 
+            <div className="md:col-span-2">
+              <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
+                <p className="text-sm font-medium text-stone-700">
+                  Estimated shipping cost
+                </p>
+
+                {estimate ? (
+                  <>
+                    <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-stone-900">
+                      {formatMoney(
+                        estimate.total,
+                        estimate.currency,
+                      )}
+                    </p>
+                    <p className="mt-1 text-xs text-stone-500">
+                      {estimate.weightKg} kg ×{" "}
+                      {formatMoney(
+                        estimate.amountPerKg,
+                        estimate.currency,
+                      )}
+                      /kg
+                      {estimate.nairaPerKg
+                        ? ` (₦${estimate.nairaPerKg.toLocaleString("en-NG")}/kg)`
+                        : ""}{" "}
+                      · {estimate.method} · {estimate.destination}
+                    </p>
+                  </>
+                ) : awaitingRateSelection ? (
+                  <p className="mt-2 text-sm text-stone-600">
+                    We don&apos;t have a published rate for this
+                    route and method. Send the request and we&apos;ll
+                    come back with a quote.
+                  </p>
+                ) : (
+                  <p className="mt-2 text-sm text-stone-600">
+                    Choose a route, method and weight to see an
+                    instant estimate.
+                  </p>
+                )}
+              </div>
+            </div>
+
             <div>
               <label
                 htmlFor="dimensions"
@@ -515,16 +624,19 @@ export function QuoteForm() {
                 className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <option value="">Select method</option>
-                <option value="Air Freight">
-                  Air Freight
-                </option>
-                <option value="Sea Freight">
-                  Sea Freight
-                </option>
-                <option value="Standard freight">
-                  Standard freight
-                </option>
+                {methodOptions.map((method) => (
+                  <option key={method} value={method}>
+                    {method}
+                  </option>
+                ))}
               </select>
+
+              {destinationIsEurope ? (
+                <p className="mt-2 text-xs text-stone-500">
+                  Europe is served by sea freight only, so air and
+                  standard freight are unavailable for this destination.
+                </p>
+              ) : null}
 
               {errors.preferredMethod ? (
                 <p className="mt-2 text-xs text-red-600">

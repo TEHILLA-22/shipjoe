@@ -43,6 +43,12 @@ export interface Quote {
   // @nullable
   notes?: string;
 
+  // @not null;unique;length:20
+  reference: string;
+
+  // @not null;secret;length:64
+  accessTokenHash: string;
+
   // @not null;length:30
   status: string;
 

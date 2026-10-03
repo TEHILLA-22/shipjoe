@@ -16,7 +16,7 @@ export function Footer() {
             <li><Link href="/services" className="hover:text-white">Services</Link></li>
             <li><Link href="/about" className="hover:text-white">About</Link></li>
             <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link href="/track" className="hover:text-white">Track shipment</Link></li>
+            <li><Link href="/view-quote" className="hover:text-white">View a quote</Link></li>
             <li><Link href="/quote" className="hover:text-white">Request a quote</Link></li>
           </ul>
         </div>
@@ -47,7 +47,6 @@ export function Footer() {
             <Link href="/terms" className="hover:text-white">Terms of Service</Link>
             <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/refunds" className="hover:text-white">Refund &amp; Cancellation</Link>
-            <Link href="/shipping-policy" className="hover:text-white">Shipping &amp; Tracking</Link>
           </nav>
         </div>
       </Container>

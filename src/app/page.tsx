@@ -57,7 +57,7 @@ export default function HomePage() {
                 
                 <div className="mt-10 flex flex-wrap items-center gap-5">
                   <PrimaryButton href="/quote" className="px-8 py-4">Request a quote</PrimaryButton>
-                  <SecondaryButton href="/track" className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10 px-8 py-4">Track shipment</SecondaryButton>
+                  <SecondaryButton href="/services" className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10 px-8 py-4">Explore services</SecondaryButton>
                 </div>
               </div>
               

@@ -71,7 +71,7 @@ export const aboutStandards = [
   },
   {
     title: "VISIBLE PROGRESS",
-    description: "The customer can track or understand the shipment process where tracking is available.",
+    description: "The customer knows exactly what happens next, and can check their quote status at any time.",
   },
   {
     title: "DIRECT COMMUNICATION",
@@ -88,5 +88,5 @@ export const aboutConfidence = {
   freightMethods: "Air / Sea",
   europeanDestinations: "All 27 EU member states",
   customerAction: "Request a quote",
-  visibility: "Tracking where available",
+  visibility: "Live quote status",
 };

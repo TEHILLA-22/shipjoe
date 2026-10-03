@@ -123,6 +123,26 @@
           "@nullable": true
         }
       },
+      "reference": {
+        "type": "string",
+        "originalType": "string",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "unique": true,
+          "length": "20"
+        }
+      },
+      "accessTokenHash": {
+        "type": "string",
+        "originalType": "string",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "secret": true,
+          "length": "64"
+        }
+      },
       "status": {
         "type": "string",
         "originalType": "string",
