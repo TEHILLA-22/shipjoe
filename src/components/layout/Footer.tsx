@@ -27,7 +27,7 @@ export function Footer() {
             <li><Link href="/services/air-freight" className="hover:text-white">Air Freight</Link></li>
             <li><Link href="/services/sea-freight" className="hover:text-white">Sea Freight</Link></li>
             <li><Link href="/services/uk-to-nigeria" className="hover:text-white">UK → Nigeria</Link></li>
-            <li><Link href="/services/nigeria-to-uk" className="hover:text-white">Nigeria → UK</Link></li>
+            <li><Link href="/services/nigeria-to-uk" className="hover:text-white">Nigeria → UK → Europe</Link></li>
           </ul>
         </div>
 
