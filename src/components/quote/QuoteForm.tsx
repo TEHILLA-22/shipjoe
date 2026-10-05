@@ -51,7 +51,13 @@ type SubmissionResult = {
   message?: string;
 };
 
-function RouteOptions({ blocked }: { blocked: string }) {
+function RouteOptions({ 
+  blocked, 
+  disableEurope = false 
+}: { 
+  blocked: string;
+  disableEurope?: boolean;
+}) {
   return (
     <>
       {CORE_ROUTES.map((route) => (
@@ -61,7 +67,11 @@ function RouteOptions({ blocked }: { blocked: string }) {
       ))}
       <optgroup label="Europe (EU)">
         {EU_ROUTES.map((route) => (
-          <option key={route} value={route} disabled={route === blocked}>
+          <option 
+            key={route} 
+            value={route} 
+            disabled={route === blocked || disableEurope}
+          >
             {route}
           </option>
         ))}
@@ -82,6 +92,7 @@ export function QuoteForm() {
 
   const methodOptions = availableMethods(values.destination);
   const destinationIsEurope = isEuCountry(values.destination);
+  const originIsUK = values.origin === "United Kingdom";
 
   const estimate = useMemo(() => {
     const weightKg = Number(values.weight);
@@ -121,6 +132,11 @@ export function QuoteForm() {
       const next = { ...prev, [field]: value };
 
       if (field === "origin" && next.destination === value) {
+        next.destination = "";
+      }
+
+      // If origin is changed to UK and destination is EU, clear destination
+      if (field === "origin" && value === "United Kingdom" && isEuCountry(next.destination)) {
         next.destination = "";
       }
 
@@ -387,7 +403,7 @@ export function QuoteForm() {
                   updateField("origin", event.target.value)
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select origin</option>
                 <RouteOptions blocked={values.destination} />
@@ -415,15 +431,21 @@ export function QuoteForm() {
                   updateField("destination", event.target.value)
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select destination</option>
-                <RouteOptions blocked={values.origin} />
+                <RouteOptions blocked={values.origin} disableEurope={originIsUK} />
               </select>
 
               {errors.destination ? (
                 <p className="mt-2 text-xs text-red-600">
                   {errors.destination}
+                </p>
+              ) : null}
+
+              {originIsUK ? (
+                <p className="mt-2 text-xs text-stone-500">
+                  We don't ship to Europe from the United Kingdom.
                 </p>
               ) : null}
             </div>
@@ -451,7 +473,7 @@ export function QuoteForm() {
                   )
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select type</option>
                 <option value="Parcel">Parcel</option>
@@ -489,7 +511,7 @@ export function QuoteForm() {
                   updateField("weight", event.target.value)
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="20"
               />
 
@@ -560,7 +582,7 @@ export function QuoteForm() {
                   )
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="60 x 40 x 40"
               />
 
@@ -592,7 +614,7 @@ export function QuoteForm() {
                   )
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="2"
               />
 
@@ -621,7 +643,7 @@ export function QuoteForm() {
                   )
                 }
                 disabled={isSubmitting}
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <option value="">Select method</option>
                 {methodOptions.map((method) => (
@@ -663,7 +685,7 @@ export function QuoteForm() {
                   )
                 }
                 disabled={isSubmitting}
-                className="min-h-[110px] w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="min-h-[110px] w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="Describe the shipment"
               />
 
@@ -698,7 +720,7 @@ export function QuoteForm() {
                 }
                 disabled={isSubmitting}
                 autoComplete="name"
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="Jane Doe"
               />
 
@@ -728,7 +750,7 @@ export function QuoteForm() {
                 }
                 disabled={isSubmitting}
                 autoComplete="organization"
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="Optional"
               />
 
@@ -756,7 +778,7 @@ export function QuoteForm() {
                 }
                 disabled={isSubmitting}
                 autoComplete="email"
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="name@example.com"
               />
 
@@ -784,7 +806,7 @@ export function QuoteForm() {
                 }
                 disabled={isSubmitting}
                 autoComplete="tel"
-                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
                 placeholder="+44 20 0000 0000"
               />
 
@@ -814,7 +836,7 @@ export function QuoteForm() {
                 updateField("notes", event.target.value)
               }
               disabled={isSubmitting}
-              className="min-h-[140px] w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-60"
+              className="min-h-[140px] w-full rounded-2xl border border-stone-300 bg-white px-4 py-3 text-stone-900 outline-none transition focus:border-stone-500 disabled:cursor-not-allowed disabled:opacity-50"
               placeholder="Tell us anything important about the shipment"
             />
 
