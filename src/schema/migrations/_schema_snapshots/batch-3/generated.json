@@ -62,6 +62,15 @@
           "@not null": true
         }
       },
+      "price": {
+        "type": "number",
+        "originalType": "number",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "default": "0"
+        }
+      },
       "description": {
         "type": "string | undefined",
         "originalType": "string",

@@ -17,8 +17,7 @@ import {
   calculateEstimate,
   formatMoney,
 } from "@/lib/shipping-rates";
-
-const NGN_PER_GBP = Number(process.env.NEXT_PUBLIC_NGN_PER_GBP ?? "1850");
+import { useCurrencyRates } from "@/hooks/useCurrencyRates";
 
 const initialValues: QuoteFormData = {
   origin: "",
@@ -90,6 +89,8 @@ export function QuoteForm() {
 
   const currentPercentage = ((step + 1) / steps.length) * 100;
 
+  const { rates, isLoading: ratesLoading } = useCurrencyRates();
+
   const methodOptions = availableMethods(values.destination);
   const destinationIsEurope = isEuCountry(values.destination);
   const originIsUK = values.origin === "United Kingdom";
@@ -106,13 +107,14 @@ export function QuoteForm() {
       values.destination,
       values.preferredMethod,
       weightKg,
-      NGN_PER_GBP,
+      rates,
     );
   }, [
     values.origin,
     values.destination,
     values.preferredMethod,
     values.weight,
+    rates,
   ]);
 
   const awaitingRateSelection =
@@ -524,19 +526,49 @@ export function QuoteForm() {
 
             <div className="md:col-span-2">
               <div className="rounded-2xl border border-stone-200 bg-stone-50 p-5">
-                <p className="text-sm font-medium text-stone-700">
-                  Estimated shipping cost
-                </p>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-medium text-stone-700">
+                    Estimated shipping cost
+                  </p>
+
+                  <span
+                    className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium ${
+                      rates.live
+                        ? "bg-emerald-100 text-emerald-800"
+                        : "bg-stone-200 text-stone-600"
+                    }`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        rates.live ? "bg-emerald-500" : "bg-stone-400"
+                      }`}
+                    />
+                    {ratesLoading
+                      ? "Loading rates..."
+                      : rates.live
+                        ? "Live exchange rate"
+                        : "Fallback rate"}
+                  </span>
+                </div>
 
                 {estimate ? (
                   <>
-                    <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-stone-900">
+                    <p className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-stone-900">
                       {formatMoney(
                         estimate.total,
                         estimate.currency,
                       )}
                     </p>
-                    <p className="mt-1 text-xs text-stone-500">
+
+                    <p className="mt-1.5 text-sm font-medium text-stone-700">
+                      ≈{" "}
+                      {formatMoney(
+                        estimate.totalInNaira,
+                        "NGN",
+                      )}
+                    </p>
+
+                    <p className="mt-3 border-t border-stone-200 pt-3 text-xs leading-5 text-stone-500">
                       {estimate.weightKg} kg ×{" "}
                       {formatMoney(
                         estimate.amountPerKg,
@@ -547,6 +579,14 @@ export function QuoteForm() {
                         ? ` (₦${estimate.nairaPerKg.toLocaleString("en-NG")}/kg)`
                         : ""}{" "}
                       · {estimate.method} · {estimate.destination}
+                    </p>
+
+                    <p className="mt-1 text-[11px] text-stone-400">
+                      1 {estimate.currency === "EUR" ? "EUR" : "GBP"} ={" "}
+                      {Math.round(estimate.nairaPerUnit).toLocaleString("en-NG")} NGN
+                      {rates.updatedAt
+                        ? ` · updated ${new Date(rates.updatedAt).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })}`
+                        : ""}
                     </p>
                   </>
                 ) : awaitingRateSelection ? (

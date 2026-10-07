@@ -1,7 +1,7 @@
 
 // AUTO-GENERATED SCHEMA - DO NOT EDIT
-// Schema Hash: 26c04f659804d8c1
-// Source Hash: 6146d96d577acf8a
+// Schema Hash: 8f00d94ec3427ac1
+// Source Hash: 55e08db040fc3cad
 
 export interface Quote {
   id?: number;
@@ -11,6 +11,7 @@ export interface Quote {
   weight: number;
   dimensions: string;
   quantity: number;
+  price: number;
   description?: string;
   preferredMethod?: string;
   fullName: string;
@@ -102,6 +103,15 @@ export const schema = {
         "optional": false,
         "meta": {
           "@not null": true
+        }
+      },
+      "price": {
+        "type": "number",
+        "originalType": "number",
+        "optional": false,
+        "meta": {
+          "@not null": true,
+          "default": "0"
         }
       },
       "description": {

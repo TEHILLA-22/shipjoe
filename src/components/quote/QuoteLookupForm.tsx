@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ActionButton } from "@/components/ui/Buttons";
 import type { PublicQuote } from "@/lib/quotes/access";
+import { formatMoney } from "@/lib/shipping-rates";
 
 const statusStyles: Record<string, string> = {
   pending: "bg-amber-100 text-amber-800",
@@ -112,8 +113,8 @@ export function QuoteLookupForm({
             ["Weight", `${quote.weight} kg`],
             ["Quantity", String(quote.quantity)],
             ["Dimensions", quote.dimensions || "Not provided"],
-            ["Company", quote.companyName || "—"],
             ["Requested", formatDate(quote.createdAt)],
+            ["Last updated", formatDate(quote.updatedAt)],
           ].map(([label, value]) => (
             <div key={label}>
               <dt className="text-xs uppercase tracking-[0.18em] text-stone-500">
@@ -123,6 +124,71 @@ export function QuoteLookupForm({
             </div>
           ))}
         </dl>
+
+        <div className="mt-6 rounded-2xl border border-stone-200 bg-stone-50 p-5">
+          <p className="text-xs uppercase tracking-[0.18em] text-stone-500">
+            Estimated price
+          </p>
+
+          {quote.estimate ? (
+            <>
+              <p className="mt-2 text-3xl font-semibold tracking-[-0.03em] text-stone-900">
+                {formatMoney(
+                  quote.estimate.total,
+                  quote.estimate.currency,
+                )}
+              </p>
+
+              <p className="mt-1 text-sm font-medium text-stone-700">
+                ≈ {formatMoney(quote.estimate.totalInNaira, "NGN")}
+              </p>
+
+              <p className="mt-3 border-t border-stone-200 pt-3 text-xs leading-5 text-stone-500">
+                {quote.estimate.weightKg} kg ×{" "}
+                {formatMoney(
+                  quote.estimate.amountPerKg,
+                  quote.estimate.currency,
+                )}
+                /kg · {quote.estimate.method}
+              </p>
+
+              <p className="mt-1 text-[11px] text-stone-400">
+                1 {quote.estimate.currency} ={" "}
+                {Math.round(quote.estimate.nairaPerUnit).toLocaleString("en-NG")}{" "}
+                NGN · calculated at lookup time, not a final quote
+              </p>
+            </>
+          ) : (
+            <p className="mt-2 text-sm text-stone-600">
+              We don&apos;t have a published rate for this route and
+              method. Our team will confirm the price with you.
+            </p>
+          )}
+        </div>
+
+        <div className="mt-6 rounded-2xl border border-stone-200 bg-white p-5">
+          <p className="text-xs uppercase tracking-[0.18em] text-stone-500">
+            Contact details
+          </p>
+
+          <dl className="mt-3 grid gap-x-8 gap-y-4 sm:grid-cols-2">
+            {[
+              ["Full name", quote.fullName],
+              ["Email", quote.email],
+              ["Phone", quote.phone],
+              ["Company", quote.companyName || "—"],
+            ].map(([label, value]) => (
+              <div key={label}>
+                <dt className="text-xs uppercase tracking-[0.18em] text-stone-500">
+                  {label}
+                </dt>
+                <dd className="mt-1 break-words text-sm text-stone-900">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
 
         {quote.description ? (
           <div className="mt-6 rounded-2xl bg-stone-50 p-5">

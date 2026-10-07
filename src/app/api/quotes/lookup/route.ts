@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { Quotes } from "@/lib/db/orm";
 import type { Quote } from "@/lib/db/models";
 import {
+  buildPublicQuote,
   hashAccessToken,
   normalizeEmail,
   phoneVariants,
-  toPublicQuote,
 } from "@/lib/quotes/access";
 
 const MAX_ATTEMPTS = 8;
@@ -84,8 +84,6 @@ function timingSafeEqualHex(a: string, b: string): boolean {
 }
 
 type StoredQuote = {
-  email: string;
-  phone: string;
   accessTokenHash: string;
   quote: Quote;
 };
@@ -105,8 +103,6 @@ async function fetchStored(
   }
 
   return {
-    email: quote.email,
-    phone: quote.phone,
     accessTokenHash: quote.accessTokenHash,
     quote,
   };
@@ -177,26 +173,23 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json({
         success: true,
-        quote: toPublicQuote(stored.quote),
+        quote: await buildPublicQuote(stored.quote),
       });
     }
 
     const identities = phoneVariants(phone);
 
+    const storedEmail = stored.quote.email.trim().toLowerCase();
+    const storedPhone = stored.quote.phone.replace(/\D/g, "");
+
     const emailMatches =
       email.length > 0 &&
-      timingSafeEqualString(
-        stored.email.trim().toLowerCase(),
-        email,
-      );
+      timingSafeEqualString(storedEmail, email);
 
     const phoneMatches =
       identities.length > 0 &&
       identities.some((identity) =>
-        timingSafeEqualString(
-          stored.phone.replace(/\D/g, ""),
-          identity,
-        ),
+        timingSafeEqualString(storedPhone, identity),
       );
 
     if (!emailMatches && !phoneMatches) {
@@ -209,7 +202,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      quote: toPublicQuote(stored.quote),
+      quote: await buildPublicQuote(stored.quote),
     });
   } catch (error) {
     console.error("POST /api/quotes/lookup failed:", error);

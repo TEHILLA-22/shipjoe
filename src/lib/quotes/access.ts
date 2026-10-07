@@ -1,5 +1,8 @@
 import crypto from "node:crypto";
 import type { Quote } from "@/lib/db/models";
+import { getCurrencyRates } from "@/lib/exchange-rates";
+import { calculateEstimate } from "@/lib/shipping-rates";
+import type { FreightEstimate } from "@/lib/shipping-rates";
 
 export type PublicQuote = {
   reference: string;
@@ -12,10 +15,14 @@ export type PublicQuote = {
   description?: string;
   preferredMethod?: string;
   fullName: string;
+  email: string;
+  phone: string;
   companyName?: string;
+  notes?: string;
   status: string;
   createdAt: string;
   updatedAt: string;
+  estimate: FreightEstimate | null;
 };
 
 const REFERENCE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -43,7 +50,10 @@ export function hashAccessToken(token: string): string {
     .digest("hex");
 }
 
-export function toPublicQuote(quote: Quote): PublicQuote {
+export function toPublicQuote(
+  quote: Quote,
+  estimate: FreightEstimate | null = null,
+): PublicQuote {
   return {
     reference: quote.reference,
     origin: quote.origin,
@@ -55,11 +65,31 @@ export function toPublicQuote(quote: Quote): PublicQuote {
     description: quote.description,
     preferredMethod: quote.preferredMethod,
     fullName: quote.fullName,
+    email: quote.email,
+    phone: quote.phone,
     companyName: quote.companyName,
+    notes: quote.notes,
     status: quote.status,
     createdAt: quote.createdAt,
     updatedAt: quote.updatedAt,
+    estimate,
   };
+}
+
+export async function buildPublicQuote(
+  quote: Quote,
+): Promise<PublicQuote> {
+  const rates = await getCurrencyRates();
+
+  const estimate = calculateEstimate(
+    quote.origin,
+    quote.destination,
+    quote.preferredMethod ?? "",
+    quote.weight,
+    rates,
+  );
+
+  return toPublicQuote(quote, estimate);
 }
 
 export function normalizeEmail(email: string): string {

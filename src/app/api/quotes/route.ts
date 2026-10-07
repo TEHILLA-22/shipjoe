@@ -10,6 +10,8 @@ import {
   generateReference,
   hashAccessToken,
 } from "@/lib/quotes/access";
+import { getCurrencyRates } from "@/lib/exchange-rates";
+import { calculateEstimate } from "@/lib/shipping-rates";
 
 function unauthorizedResponse() {
   return NextResponse.json(
@@ -98,6 +100,15 @@ export async function POST(request: NextRequest) {
     const accessToken = generateAccessToken();
     const reference = generateReference();
 
+    const rates = await getCurrencyRates();
+    const estimate = calculateEstimate(
+      values.origin,
+      values.destination,
+      values.preferredMethod,
+      Number(values.weight),
+      rates,
+    );
+
     const quote = await Quotes.insert({
       origin: values.origin,
       destination: values.destination,
@@ -115,6 +126,7 @@ export async function POST(request: NextRequest) {
       notes: values.notes || undefined,
       reference,
       accessTokenHash: hashAccessToken(accessToken),
+      price: estimate ? Math.round(estimate.totalInNaira) : 0,
       status: "pending",
       createdAt: now,
       updatedAt: now,

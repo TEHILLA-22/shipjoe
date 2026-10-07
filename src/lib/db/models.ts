@@ -19,8 +19,11 @@ export interface Quote {
   // @not null;length:100
   dimensions: string;
 
-  // @not null
+  // @not null;float
   quantity: number;
+
+// @not null;default:0;float
+  price: number;
 
   // @nullable
   description?: string;

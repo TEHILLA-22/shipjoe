@@ -1,0 +1,30 @@
+{
+  "name": "Quote__97f078e969b4",
+  "modelName": "Quote",
+  "tableName": "quotes",
+  "schemaHash": "97f078e969b459a76dc6c3e4c28b0f57748c522fd512b133c0879ce462377832",
+  "batch": 4,
+  "appliedAt": "2026-10-07T18:13:56.729Z",
+  "fields": [
+    "id",
+    "origin",
+    "destination",
+    "shipmentType",
+    "weight",
+    "dimensions",
+    "quantity",
+    "price",
+    "description",
+    "preferredMethod",
+    "fullName",
+    "email",
+    "phone",
+    "companyName",
+    "notes",
+    "reference",
+    "accessTokenHash",
+    "status",
+    "createdAt",
+    "updatedAt"
+  ]
+}
