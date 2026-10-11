@@ -126,7 +126,7 @@ export default function AdminQuotesPage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <div>
             <p className="text-xs font-medium uppercase tracking-[0.22em] text-stone-500">
-              EM Move Logistics
+              EM Bridge Logistics
             </p>
 
             <h1 className="mt-1 text-2xl font-semibold tracking-[-0.04em] text-stone-900">

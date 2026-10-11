@@ -1,15 +1,15 @@
 export const aboutHero = {
-  label: "About EM Move Logistics",
+  label: "About EM Bridge Logistics",
   headline: "MOVING MORE THAN CARGO.",
   supportingText:
-    "EM Move Logistics is a Nigeria ↔ UK ↔ Europe shipping and freight service focused on practical route support, clear shipment information, and dependable communication.",
+    "EM Bridge Logistics is a Nigeria ↔ UK ↔ Europe shipping and freight service focused on practical route support, clear shipment information, and dependable communication.",
 };
 
 export const aboutOrigin = {
-  headline: "WHY EM MOVE LOGISTICS EXISTS",
+  headline: "WHY EM BRIDGE LOGISTICS EXISTS",
   narrative: [
     "Moving something out of Nigeria involves more than choosing a destination. Whether the route ends in the United Kingdom or somewhere across the European Union, the cargo type, weight, dimensions and freight method all shape the next step.",
-    "EM Move Logistics exists to make that starting point clearer: give customers a practical way to describe what they need to move, understand the available air and sea options, and begin a focused shipping conversation.",
+    "EM Bridge Logistics exists to make that starting point clearer: give customers a practical way to describe what they need to move, understand the available air and sea options, and begin a focused shipping conversation.",
   ],
 };
 
@@ -75,7 +75,7 @@ export const aboutStandards = [
   },
   {
     title: "DIRECT COMMUNICATION",
-    description: "Customers have a clear, direct way to contact EM Move Logistics regarding their cargo.",
+    description: "Customers have a clear, direct way to contact EM Bridge Logistics regarding their cargo.",
   },
   {
     title: "PRACTICAL OPTIONS",

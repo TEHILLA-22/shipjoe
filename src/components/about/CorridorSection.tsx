@@ -54,7 +54,7 @@ export function CorridorSection() {
             Nigeria <span className="font-light text-stone-400">↔</span> UK <span className="font-light text-stone-400">↔</span> Europe
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
-            EM Move Logistics is built around shipping goods, packages and commercial freight out of Nigeria — by air to the United Kingdom, and by sea to the UK and onward to every one of the 27 EU member states.
+            EM Bridge Logistics is built around shipping goods, packages and commercial freight out of Nigeria — by air to the United Kingdom, and by sea to the UK and onward to every one of the 27 EU member states.
           </p>
         </div>
 

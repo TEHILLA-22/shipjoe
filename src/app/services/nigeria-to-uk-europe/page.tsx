@@ -9,7 +9,7 @@ import { CinematicRouteHero } from "@/components/services/CinematicRouteHero";
 import { RouteFeatureCard } from "@/components/services/RouteFeatureCard";
 
 export const metadata: Metadata = {
-  title: "Nigeria to UK | EM Move Logistics",
+  title: "Nigeria to UK | EM Bridge Logistics",
   description: "Nigeria to UK shipping with route-specific guidance for parcels, cargo and freight movements.",
 };
 
@@ -26,8 +26,8 @@ export default function NigeriaToUKPage() {
           destinationFlag="🇬🇧"
           title="Cargo from Nigeria to the UK."
           description="This route supports outward shipments from Nigeria to the UK, with the movement shaped around cargo type, route realism and delivery timeline clarity."
-          image="https://images.unsplash.com/photo-1519003722824-194e9612c857?auto=format&fit=crop&w=1600&q=80"
-          imageAlt="Nigeria to UK freight shipment loading"
+          image="https://images.unsplash.com/photo-1774929108070-b60d3879e071?auto=format&fit=crop&w=1600&q=80"
+          imageAlt="Cargo ship loaded with shipping containers at port"
           direction="rtl"
         />
 

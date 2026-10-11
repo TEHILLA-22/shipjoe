@@ -42,7 +42,8 @@
         "originalType": "number",
         "optional": false,
         "meta": {
-          "@not null": true
+          "@not null": true,
+          "float": true
         }
       },
       "dimensions": {

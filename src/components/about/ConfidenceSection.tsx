@@ -9,7 +9,7 @@ export function ConfidenceSection() {
         <Reveal>
           <div className="max-w-4xl mx-auto">
             <h2 className="text-xl font-semibold tracking-[-0.03em] text-stone-900 mb-12">
-              EM MOVE LOGISTICS SPECIFICATIONS
+              EM BRIDGE LOGISTICS SPECIFICATIONS
             </h2>
             
             <div className="border-t border-stone-200">

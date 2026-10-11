@@ -73,7 +73,7 @@ export const services: Service[] = [
     cta: "Plan UK → Nigeria shipment",
   },
   {
-    slug: "nigeria-to-uk",
+    slug: "nigeria-to-uk-europe",
     title: "Nigeria → UK",
     description:
       "A clear route for shipments moving from Nigeria to the UK, covering the collection, customs preparation, and onward delivery process from one side of the journey to the other.",
@@ -91,9 +91,9 @@ export const services: Service[] = [
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What shipping routes does EM Move Logistics handle?",
+    question: "What shipping routes does EM Bridge Logistics handle?",
     answer:
-      "EM Move Logistics ships from Nigeria to the United Kingdom by air and sea, and from Nigeria to destinations across the European Union by sea. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
+      "EM Bridge Logistics ships from Nigeria to the United Kingdom by air and sea, and from Nigeria to destinations across the European Union by sea. Routes can be tailored for commercial cargo, parcels, and personal shipments.",
   },
   {
     question: "Do you offer both air and sea freight?",
@@ -202,7 +202,7 @@ export const serviceJourney = [
 ] as const;
 
 export const servicesPageFaq: FaqItem[] = [
-  { question: "Can I ship from Nigeria to the UK?", answer: "Yes. EM Move Logistics supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
+  { question: "Can I ship from Nigeria to the UK?", answer: "Yes. EM Bridge Logistics supports Nigeria to UK shipping across air and sea freight options, depending on the shipment details." },
   { question: "Do you ship from Nigeria to Europe?", answer: "Yes. Sea freight runs from Nigeria to the United Kingdom and onward to all EU member states, so larger consignments can be moved to destinations across Europe. Provide the destination country with your quote request." },
   { question: "Do you offer air freight to Europe?", answer: "Air freight is currently Nigeria to the UK only. For European destinations, request a sea freight quote and include the destination country." },
   { question: "Can I ship from the UK to Nigeria?", answer: "Yes. UK to Nigeria is also supported as a route direction. Request a quote with your shipment information so the route can be reviewed." },

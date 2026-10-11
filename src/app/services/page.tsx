@@ -14,8 +14,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { servicesPageFaq, servicesPageMethods, serviceJourney } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Services | EM Move Logistics",
-  description: "Understand EM Move Logistics's Nigeria to UK, Nigeria to Europe and UK to Nigeria air and sea freight services.",
+  title: "Services | EM Bridge Logistics",
+  description: "Understand EM Bridge Logistics's Nigeria to UK, Nigeria to Europe and UK to Nigeria air and sea freight services.",
 };
 
 const directions = [
@@ -62,7 +62,7 @@ export default function ServicesPage() {
 
         <section className="border-b border-stone-200 bg-stone-50 py-20 sm:py-28">
           <Container>
-            <SectionHeading eyebrow="The directions" title="Out of Nigeria, and back again." description="EM Move Logistics is built around routes out of Nigeria to the UK and across Europe, plus a reciprocal UK to Nigeria lane, so the direction is clear before the shipment details are reviewed." />
+            <SectionHeading eyebrow="The directions" title="Out of Nigeria, and back again." description="EM Bridge Logistics is built around routes out of Nigeria to the UK and across Europe, plus a reciprocal UK to Nigeria lane, so the direction is clear before the shipment details are reviewed." />
             <RouteTransition>
               <div data-route-visual className="mt-12 rounded-[32px] border border-stone-200 bg-white p-6 sm:p-10">
                 <svg viewBox="0 0 900 180" className="w-full" role="img" aria-label="Routes from Nigeria to the United Kingdom and across Europe">
@@ -112,7 +112,7 @@ export default function ServicesPage() {
         </section>
 
         <section className="bg-stone-950 py-20 text-white sm:py-28">
-          <Container><div className="max-w-3xl"><p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-200/70">Why EM Move Logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-6xl">A focused Nigeria ↔ UK ↔ Europe shipping service.</h2><p className="mt-6 text-lg leading-8 text-stone-300">EM Move Logistics brings together route-specific support, air and sea freight options, quote-led shipment information and quote confirmation access in one clear service journey.</p></div><div className="mt-12 grid gap-5 border-t border-stone-800 pt-8 sm:grid-cols-2 lg:grid-cols-4">{["Nigeria ↔ UK ↔ Europe focus", "Air to UK · Sea to EU", "Quote-led shipment details", "Tracking access"].map((item) => <p key={item} className="text-sm font-medium text-stone-200">{item}</p>)}</div></Container>
+          <Container><div className="max-w-3xl"><p className="text-xs font-medium uppercase tracking-[0.28em] text-sky-200/70">Why EM Bridge Logistics</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-6xl">A focused Nigeria ↔ UK ↔ Europe shipping service.</h2><p className="mt-6 text-lg leading-8 text-stone-300">EM Bridge Logistics brings together route-specific support, air and sea freight options, quote-led shipment information and quote confirmation access in one clear service journey.</p></div><div className="mt-12 grid gap-5 border-t border-stone-800 pt-8 sm:grid-cols-2 lg:grid-cols-4">{["Nigeria ↔ UK ↔ Europe focus", "Air to UK · Sea to EU", "Quote-led shipment details", "Tracking access"].map((item) => <p key={item} className="text-sm font-medium text-stone-200">{item}</p>)}</div></Container>
         </section>
 
         <section className="border-b border-stone-200 bg-white py-20 sm:py-28"><Container className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="text-xs uppercase tracking-[0.28em] text-stone-500">Decision support</p><h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-[-0.07em] text-stone-900 sm:text-6xl">Not sure how your shipment should move?</h2><p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600">Tell us what you are shipping, where it is going and the shipment details. The quote process collects the information needed to review the appropriate option.</p></div><div className="flex flex-wrap gap-3"><PrimaryButton href="/quote">Get a quote</PrimaryButton><SecondaryButton href="/track">Track shipment</SecondaryButton></div></Container></section>

@@ -13,7 +13,7 @@ export interface Quote {
   // @not null;length:100
   shipmentType: string;
 
-  // @not null
+  // @not null;float
   weight: number;
 
   // @not null;length:100

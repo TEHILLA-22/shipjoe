@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ServiceMethodPage } from "@/components/services/ServiceMethodPage";
 
 export const metadata: Metadata = {
-  title: "Air Freight | EM Move Logistics",
+  title: "Air Freight | EM Bridge Logistics",
   description: "Air freight shipping between Nigeria and the UK for urgent cargo and international movement.",
 };
 

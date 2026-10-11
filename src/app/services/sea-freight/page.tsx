@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ServiceMethodPage } from "@/components/services/ServiceMethodPage";
 
 export const metadata: Metadata = {
-  title: "Sea Freight | EM Move Logistics",
+  title: "Sea Freight | EM Bridge Logistics",
   description: "Sea freight from Nigeria to the UK and across the EU for larger consignments and route-based cargo handling.",
 };
 

@@ -16,8 +16,8 @@ import { ConfidenceSection } from "@/components/about/ConfidenceSection";
 import { AboutCTA } from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = {
-  title: "About | EM Move Logistics",
-  description: "Learn about the people, principles, and process behind the EM Move Logistics service system.",
+  title: "About | EM Bridge Logistics",
+  description: "Learn about the people, principles, and process behind the EM Bridge Logistics service system.",
 };
 
 export default function AboutPage() {

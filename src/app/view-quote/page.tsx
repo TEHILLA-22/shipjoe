@@ -6,9 +6,9 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "View a quote | EM Move Logistics",
+  title: "View a quote | EM Bridge Logistics",
   description:
-    "Look up your EM Move Logistics quote request and check its current status using your reference and contact details.",
+    "Look up your EM Bridge Logistics quote request and check its current status using your reference and contact details.",
 };
 
 type ViewQuotePageProps = {
