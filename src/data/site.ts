@@ -67,7 +67,7 @@ export const services: Service[] = [
     direction: "uk-to-nigeria",
     method: "freight",
     image:
-      "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1755428829764-c035d16263b9?auto=format&fit=crop&w=1200&q=80",
     routeLabel: "UK to Nigeria",
     shipmentTypes: ["Parcel", "Commercial cargo", "Personal effects"],
     cta: "Plan UK → Nigeria shipment",
@@ -82,7 +82,7 @@ export const services: Service[] = [
     direction: "nigeria-to-uk",
     method: "freight",
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1759389003827-2a214e4c73b4?auto=format&fit=crop&w=1200&q=80",
     routeLabel: "Nigeria to UK",
     shipmentTypes: ["Parcel", "Commercial cargo", "Personal effects"],
     cta: "Plan Nigeria → UK shipment",
