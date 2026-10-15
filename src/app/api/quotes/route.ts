@@ -1,6 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { Quotes } from "@/lib/db/orm";
 import { getAdminSession } from "@/lib/auth/admin-auth";
+import { sendQuoteConfirmation } from "@/lib/email/quote-email";
 import {
   validateQuoteForm,
   type QuoteFormData,
@@ -131,6 +132,10 @@ export async function POST(request: NextRequest) {
       createdAt: now,
       updatedAt: now,
     });
+
+    if (quote) {
+      after(() => sendQuoteConfirmation(quote, estimate));
+    }
 
     return NextResponse.json(
       {
