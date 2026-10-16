@@ -16,6 +16,7 @@ import {
 import {
   calculateEstimate,
   formatMoney,
+  PRICE_MARKUP_RATE,
 } from "@/lib/shipping-rates";
 import { useCurrencyRates } from "@/hooks/useCurrencyRates";
 
@@ -579,6 +580,21 @@ export function QuoteForm() {
                         ? ` (₦${estimate.nairaPerKg.toLocaleString("en-NG")}/kg)`
                         : ""}{" "}
                       · {estimate.method} · {estimate.destination}
+                    </p>
+
+                    <p className="mt-1 text-xs leading-5 text-stone-500">
+                      Subtotal{" "}
+                      {formatMoney(
+                        estimate.subtotal,
+                        estimate.currency,
+                      )}{" "}
+                      + service fee (
+                      {Math.round(PRICE_MARKUP_RATE * 100)}
+                      %){" "}
+                      {formatMoney(
+                        estimate.markup,
+                        estimate.currency,
+                      )}
                     </p>
 
                     <p className="mt-1 text-[11px] text-stone-400">

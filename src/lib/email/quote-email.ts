@@ -4,6 +4,7 @@ import type { Quote } from "@/lib/db/models";
 import {
   formatMoney,
   formatRate,
+  PRICE_MARKUP_RATE,
   type FreightEstimate,
 } from "@/lib/shipping-rates";
 import { isEmailConfigured, sendEmail } from "@/lib/email/mailer";
@@ -14,11 +15,17 @@ export type QuoteEmailContent = {
   text: string;
 };
 
+type PriceLine = {
+  label: string;
+  value: string;
+};
+
 type PriceSummary = {
   label: string;
   total: string;
   secondary: string | null;
   rate: string | null;
+  lines: PriceLine[];
 };
 
 function resolveSiteUrl(): string {
@@ -61,6 +68,16 @@ function buildPriceSummary(
         ? `Approx. ${formatMoney(estimate.totalInNaira, "NGN")}`
         : null,
       rate: `${formatRate(estimate.amountPerKg)} ${estimate.currency}/kg × ${formatRate(estimate.weightKg)} kg`,
+      lines: [
+        {
+          label: "Subtotal",
+          value: formatMoney(estimate.subtotal, estimate.currency),
+        },
+        {
+          label: `Service fee (${Math.round(PRICE_MARKUP_RATE * 100)}%)`,
+          value: formatMoney(estimate.markup, estimate.currency),
+        },
+      ],
     };
   }
 
@@ -70,6 +87,7 @@ function buildPriceSummary(
       total: formatMoney(quote.price, "NGN"),
       secondary: null,
       rate: null,
+      lines: [],
     };
   }
 
@@ -142,6 +160,9 @@ export function buildQuoteEmail(
     if (price.rate) {
       textLines.push(`Rate: ${price.rate}`);
     }
+    for (const line of price.lines) {
+      textLines.push(`${line.label}: ${line.value}`);
+    }
     textLines.push(`${price.label}: ${price.total}`);
     if (price.secondary) {
       textLines.push(price.secondary);
@@ -172,6 +193,17 @@ export function buildQuoteEmail(
     )
     .join("");
 
+  const priceLines = price
+    ? price.lines
+        .map(
+          (line) =>
+            `<p style="margin:2px 0;color:#57534e;font-size:13px;">${escapeHtml(
+              line.label,
+            )}: <strong style="color:#1c1917;">${escapeHtml(line.value)}</strong></p>`,
+        )
+        .join("")
+    : "";
+
   const priceBlock = price
     ? `
         <div style="margin-top:24px;border:1px solid #e7e5e4;border-radius:16px;background:#fafaf9;padding:20px;">
@@ -186,6 +218,11 @@ export function buildQuoteEmail(
               ? `<p style="margin:4px 0 0;color:#57534e;font-size:14px;">${escapeHtml(
                   price.secondary,
                 )}</p>`
+              : ""
+          }
+          ${
+            priceLines
+              ? `<div style="margin:12px 0 0;padding-top:12px;border-top:1px solid #e7e5e4;">${priceLines}</div>`
               : ""
           }
           ${

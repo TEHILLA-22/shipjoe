@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ActionButton } from "@/components/ui/Buttons";
 import type { PublicQuote } from "@/lib/quotes/access";
-import { formatMoney } from "@/lib/shipping-rates";
+import { formatMoney, PRICE_MARKUP_RATE } from "@/lib/shipping-rates";
 
 const statusStyles: Record<string, string> = {
   pending: "bg-amber-100 text-amber-800",
@@ -150,6 +150,21 @@ export function QuoteLookupForm({
                   quote.estimate.currency,
                 )}
                 /kg · {quote.estimate.method}
+              </p>
+
+              <p className="mt-1 text-xs leading-5 text-stone-500">
+                Subtotal{" "}
+                {formatMoney(
+                  quote.estimate.subtotal,
+                  quote.estimate.currency,
+                )}{" "}
+                + service fee (
+                {Math.round(PRICE_MARKUP_RATE * 100)}
+                %){" "}
+                {formatMoney(
+                  quote.estimate.markup,
+                  quote.estimate.currency,
+                )}
               </p>
 
               <p className="mt-1 text-[11px] text-stone-400">

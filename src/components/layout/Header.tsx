@@ -27,17 +27,20 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-[rgba(250,250,249,0.9)] backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
-        <div className="flex justify-between gap-2">
-      <Image
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <Image
             src="/images/embridgelogo2.png"
-            alt="header"
+            alt="EM Bridge Logistics"
             width={70}
             height={50}
-            className=""
+            className="h-auto w-11 shrink-0 sm:w-12 md:w-[70px]"
           />
-        <Link href="/" className="text-lg py-6 font-semibold tracking-[0.22em] text-stone-900 uppercase">
-          EM Bridge Logistics
-        </Link>
+          <Link
+            href="/"
+            className="whitespace-nowrap text-xs font-semibold uppercase leading-none tracking-[0.1em] text-stone-900 sm:text-sm sm:tracking-[0.16em] md:py-6 md:text-lg md:tracking-[0.22em]"
+          >
+            EM Bridge Logistics
+          </Link>
         </div>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">

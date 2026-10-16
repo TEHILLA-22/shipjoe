@@ -112,10 +112,14 @@ export function getRatePerKg(
   };
 }
 
+export const PRICE_MARKUP_RATE = 0.11;
+
 export type FreightEstimate = {
   currency: Exclude<RateCurrency, "NGN">;
   amountPerKg: number;
   weightKg: number;
+  subtotal: number;
+  markup: number;
   total: number;
   totalInNaira: number;
   nairaPerUnit: number;
@@ -143,7 +147,9 @@ export function calculateEstimate(
     return null;
   }
 
-  const total = round2(rate.amountPerKg * weightKg);
+  const subtotal = round2(rate.amountPerKg * weightKg);
+  const markup = round2(subtotal * PRICE_MARKUP_RATE);
+  const total = round2(subtotal + markup);
 
   const nairaPerUnit =
     rate.currency === "GBP" ? rates.ngnPerGbp : rates.ngnPerEur;
@@ -157,6 +163,8 @@ export function calculateEstimate(
     currency: rate.currency,
     amountPerKg: rate.amountPerKg,
     weightKg,
+    subtotal,
+    markup,
     total,
     totalInNaira,
     nairaPerUnit: Number.isFinite(nairaPerUnit) ? nairaPerUnit : 0,
