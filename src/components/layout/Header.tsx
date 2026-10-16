@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { PrimaryButton } from "@/components/ui/Buttons";
@@ -26,9 +27,18 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-stone-200/80 bg-[rgba(250,250,249,0.9)] backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="text-lg font-semibold tracking-[0.22em] text-stone-900 uppercase">
+        <div className="flex justify-between gap-2">
+      <Image
+            src="/images/embridgelogo2.png"
+            alt="header"
+            width={70}
+            height={50}
+            className=""
+          />
+        <Link href="/" className="text-lg py-6 font-semibold tracking-[0.22em] text-stone-900 uppercase">
           EM Bridge Logistics
         </Link>
+        </div>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-10 md:flex">
           {navigation.map((item) => (
