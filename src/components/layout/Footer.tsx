@@ -40,7 +40,7 @@ export function Footer() {
             <li>Phone</li>
             <li><a href="tel:+447944036116" className="hover:text-white">+44 7944 036 116</a></li>
            <div className="cursor-pointer">
-         <a href="https://wa.me/2349066015580" 
+         <a href="https://wa.me/2349069705959" 
          target="_blank"
           rel="noopener noreferrer" 
           aria-label="chat on whatsapp"
