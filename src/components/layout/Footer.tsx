@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { SiWhatsapp } from '@icons-pack/react-simple-icons';
 
 export function Footer() {
   return (
@@ -38,6 +39,17 @@ export function Footer() {
             <li><a href="mailto:info@embridgelogistics.com" className="hover:text-white">info@embridgelogistics.com</a></li>
             <li>Phone</li>
             <li><a href="tel:+447944036116" className="hover:text-white">+44 7944 036 116</a></li>
+           <div className="cursor-pointer">
+         <a href="https://wa.me/2349066015580" 
+         target="_blank"
+          rel="noopener noreferrer" 
+          aria-label="chat on whatsapp"
+          className="flex items-center gap-2 text-sm font-medium capitalize hover:text-white">
+          
+           <SiWhatsapp className="w-5" />
+            chat with us on whatsapp
+           </a>
+        </div>
           </ul>
         </div>
 
@@ -49,6 +61,7 @@ export function Footer() {
             <Link href="/refunds" className="hover:text-white">Refund &amp; Cancellation</Link>
           </nav>
         </div>
+
       </Container>
     </footer>
   );
