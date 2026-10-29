@@ -38,7 +38,7 @@ export function Footer() {
             <li>Email</li>
             <li><a href="mailto:info@embridgelogistics.com" className="hover:text-white">info@embridgelogistics.com</a></li>
             <li>Phone</li>
-            <li><a href="tel:+447944036116" className="hover:text-white">+44 7944 036 116</a></li>
+            <li><a href="tel:+2349069705959" className="hover:text-white">+234 9069 705 959</a></li>
            <div className="cursor-pointer">
          <a href="https://wa.me/2349069705959" 
          target="_blank"
